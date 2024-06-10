@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "+U9iHbWHf2bfaKZB8/Y9aGphO4oaJ60/TP9sr3Yxg8LhW+2AC5j/SerTk1yz4465+il+z/dM1Gtd7yfXAbUdog==",
+  "dgSpecHash": "mTqYs347lJgh8rgQItzgVKRMZLm4d4heUwpIDMNeU9V9bxDt1iROFrBnl7WajEGU220cBh1jPxpoV6cjcjhtdw==",
   "success": true,
   "projectFilePath": "C:\\solArchitecture\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\niekg\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\niekg\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\niekg\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\niekg\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\niekg\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\niekg\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
   "logs": []
 }

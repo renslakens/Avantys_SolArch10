@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentManagement", "PaymentManagement\PaymentManagement.csproj", "{64AD1445-6E6B-48F0-A54B-C2AE66F04F36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentManagement", "PaymentManagement\PaymentManagement.csproj", "{B6E69E22-942C-462F-88D6-2A6D0C880226}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{64AD1445-6E6B-48F0-A54B-C2AE66F04F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64AD1445-6E6B-48F0-A54B-C2AE66F04F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64AD1445-6E6B-48F0-A54B-C2AE66F04F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64AD1445-6E6B-48F0-A54B-C2AE66F04F36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6E69E22-942C-462F-88D6-2A6D0C880226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6E69E22-942C-462F-88D6-2A6D0C880226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6E69E22-942C-462F-88D6-2A6D0C880226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6E69E22-942C-462F-88D6-2A6D0C880226}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2323D950-F419-4FF3-98AA-BB4727E47E4F}
+		SolutionGuid = {866E00F4-3556-493D-9190-3601D2409659}
 	EndGlobalSection
 EndGlobal
