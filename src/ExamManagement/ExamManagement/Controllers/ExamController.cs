@@ -19,7 +19,7 @@ namespace ExamManagement.Controllers
             _examConnector = examConnector;
         }
 
-        [HttpPost("send")]
+        [HttpPost("Send")]
         public IActionResult SendExam([FromBody] Object exam)
         {
             _examConnector.SendExam(exam, examExchange, examRoutingKey, "ExamQueue");

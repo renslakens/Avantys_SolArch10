@@ -49,7 +49,7 @@ namespace ExamManagement
                 string message = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
 
                 T messageObj = JsonSerializer.Deserialize<T>(message);
-                Console.WriteLine($"Resceived message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
+                Console.WriteLine($"Received message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
 
                 channel.BasicAck(eventArgs.DeliveryTag, false);
             };
