@@ -1,4 +1,6 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using ExamManagement;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -7,8 +9,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSingleton<ExamConnector>();
+builder.Services.AddHostedService<ExamReceiverService>();
+
 var app = builder.Build();
-//test
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
