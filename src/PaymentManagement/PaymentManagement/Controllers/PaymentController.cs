@@ -16,9 +16,26 @@ namespace PaymentManagement.Controllers {
 
         [HttpPost("send")]
         public IActionResult SendPayment([FromBody] object payment) {
-            _paymentConnector.SendPayment(payment, paymentExchangeName, paymentRoutingKey, paymentQueueName );
+            _paymentConnector.PaymentSender(payment, paymentExchangeName, paymentRoutingKey, paymentQueueName );
             return Ok("Payment sent.");
         }
+
+
+        // Send Student management information about payment authorization
+        [HttpPost("PaymentAuthorization")]
+        public IActionResult AuthorizePayment([FromBody] object body) {
+            _paymentConnector.PaymentSender(body, paymentExchangeName, paymentRoutingKey, paymentQueueName);
+            return Ok("Payment received.");
+        }
+
+        // Send Student management information about payment success
+        [HttpPost("Pay")]
+        public IActionResult ConfirmPayment([FromBody] object body) {
+            _paymentConnector.PaymentSender(body, paymentExchangeName, paymentRoutingKey, paymentQueueName);
+            return Ok("Payment received.");
+        }
+
+
 
     }
 }

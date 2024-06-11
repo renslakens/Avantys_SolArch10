@@ -11,7 +11,7 @@ namespace PaymentManagement {
         private const string routingKey = "payment-sol-arch-routing-key";
         private const string queueName = "PaymentQueue";
 
-        public void SendPayment<T>(T messageObj, string CexchangeName, string CroutingKey, string CqueueName ) {
+        public void PaymentSender<T>(T messageObj, string CexchangeName, string CroutingKey, string CqueueName ) {
             // create connection
             using var connection = factory.CreateConnection("Rabbit Payment Sender");
             using var channel = connection.CreateModel();
@@ -29,7 +29,7 @@ namespace PaymentManagement {
             connection.Close();
         }
 
-        public void ReceivePayment<T>() {
+        public void PaymentReceiver<T>() {
             // create connection
             using var connection = factory.CreateConnection("Rabbit Payment Receiver");
             using var channel = connection.CreateModel();
