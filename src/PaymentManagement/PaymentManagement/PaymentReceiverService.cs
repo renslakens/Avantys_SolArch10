@@ -7,7 +7,7 @@
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken) {
-            return Task.Run(() => _paymentConnector.ReceivePayment<dynamic>(), stoppingToken);
+            return Task.Run(() => _paymentConnector.PaymentReceiver<dynamic>(), stoppingToken);
         }
     }
 }
