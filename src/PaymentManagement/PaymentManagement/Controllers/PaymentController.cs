@@ -8,6 +8,7 @@ namespace PaymentManagement.Controllers {
         private readonly PaymentConnector _paymentConnector;
         private string paymentExchangeName = "PaymentSolArchExchange";
         private string paymentRoutingKey = "payment-sol-arch-routing-key";
+        private string paymentQueueName = "PaymentQueue";
 
         public PaymentController(PaymentConnector paymentConnector) {
             _paymentConnector = paymentConnector;
@@ -15,7 +16,7 @@ namespace PaymentManagement.Controllers {
 
         [HttpPost("send")]
         public IActionResult SendPayment([FromBody] object payment) {
-            _paymentConnector.SendPayment(payment, paymentExchangeName, paymentRoutingKey );
+            _paymentConnector.SendPayment(payment, paymentExchangeName, paymentRoutingKey, paymentQueueName );
             return Ok("Payment sent.");
         }
 
