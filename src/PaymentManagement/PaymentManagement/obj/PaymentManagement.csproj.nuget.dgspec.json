@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\niekg\\Source\\Repos\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj": {}
+    "/Users/rens/dev/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/PaymentManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\niekg\\Source\\Repos\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj": {
+    "/Users/rens/dev/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/PaymentManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\niekg\\Source\\Repos\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj",
+        "projectUniqueName": "/Users/rens/dev/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/PaymentManagement.csproj",
         "projectName": "PaymentManagement",
-        "projectPath": "C:\\Users\\niekg\\Source\\Repos\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj",
-        "packagesPath": "C:\\Users\\niekg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\niekg\\Source\\Repos\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\obj\\",
+        "projectPath": "/Users/rens/dev/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/PaymentManagement.csproj",
+        "packagesPath": "/Users/rens/.nuget/packages/",
+        "outputPath": "/Users/rens/dev/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\niekg\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/rens/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -72,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
