@@ -50,4 +50,4 @@ coverage/
 *.vs/
 *.pidb
 .vscode/
-
+.DS_Store
