@@ -22,6 +22,39 @@ services:
     volumes:
       - mongo-data:/data/db
 
+  PaymentManager:
+    image: mcr.microsoft.com/dotnet/aspnet:8.0
+    container_name: payment_container
+    build:
+      context: ./PaymentManagement/PaymentManagement
+      dockerfile: Dockerfile
+      args:
+        PROJECT_DIR: ./PaymentManagement/PaymentManagement/Dockerfile
+    ports:
+      - "8081:8080"  # Adjust port as needed
+    networks:
+      - project_network
+    depends_on:
+      - rabbitmq
+      - mongodb
+
+  # project2:
+    # image: mcr.microsoft.com/dotnet/aspnet:8.0
+    # container_name: project2_container
+    # build:
+      # context: .
+      # dockerfile: Dockerfile
+      # args:
+        # PROJECT_DIR: ./Project2
+    # ports:
+      # - "8082:80"  # Adjust port as needed
+    # networks:
+      # - project_network
+
+networks:
+  project_network:
+    driver: bridge
+
 volumes:
   mongo-data:
     driver: local
