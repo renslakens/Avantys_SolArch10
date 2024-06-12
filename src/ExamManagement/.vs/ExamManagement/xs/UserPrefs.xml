@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{52AC92F5-EAA1-4DBC-99AE-83048E60457D}|http">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workbench ActiveDocument="ExamManagement/Program.cs">
     <Files>
       <File FileName="ExamManagement/Program.cs" Line="22" Column="2" />
@@ -12,10 +11,13 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ExamManagement" expanded="True" />
+          <Node name="ExamManagement">
+            <Node name="ExamManagement" selected="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.ExamManagement PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>
