@@ -4,11 +4,9 @@ using System;
 using System.Text;
 using System.Text.Json;
 
-namespace PaymentManagement
-{
-    public class PaymentConnector
-    {
-        private readonly ConnectionFactory factory = new() { Uri = new Uri("amqp://guest:guest@172.20.0.1:5672") };
+namespace PaymentManagement {
+    public class PaymentConnector {
+        private readonly ConnectionFactory factory = new() { Uri = new Uri(Environment.GetEnvironmentVariable("RABBIT_ADDRESS")) };
         private const string exchangeName = "PaymentSolArchExchange";
         private const string routingKey = "payment-sol-arch-routing-key";
         private const string queueName = "PaymentQueue";

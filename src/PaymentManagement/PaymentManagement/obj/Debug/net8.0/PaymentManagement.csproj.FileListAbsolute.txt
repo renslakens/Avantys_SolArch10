@@ -66,3 +66,5 @@ C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debu
 C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.pdb
 C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.genruntimeconfig.cache
 C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\ref\PaymentManagement.dll
+C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\DotNetEnv.dll
+C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\Sprache.dll
