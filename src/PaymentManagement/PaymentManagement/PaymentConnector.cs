@@ -4,14 +4,17 @@ using System;
 using System.Text;
 using System.Text.Json;
 
-namespace PaymentManagement {
-    public class PaymentConnector {
-        private readonly ConnectionFactory factory = new() { Uri = new Uri("amqp://guest:guest@192.168.112.1:5672") };
+namespace PaymentManagement
+{
+    public class PaymentConnector
+    {
+        private readonly ConnectionFactory factory = new() { Uri = new Uri("amqp://guest:guest@172.20.0.1:5672") };
         private const string exchangeName = "PaymentSolArchExchange";
         private const string routingKey = "payment-sol-arch-routing-key";
         private const string queueName = "PaymentQueue";
 
-        public void PaymentSender<T>(T messageObj, string CexchangeName, string CroutingKey, string CqueueName ) {
+        public void PaymentSender<T>(T messageObj, string CexchangeName, string CroutingKey, string CqueueName)
+        {
             // create connection
             using var connection = factory.CreateConnection("Rabbit Payment Sender");
             using var channel = connection.CreateModel();
@@ -29,8 +32,10 @@ namespace PaymentManagement {
             connection.Close();
         }
 
-        public void PaymentReceiver<T>() {
-            try {
+        public void PaymentReceiver<T>()
+        {
+            try
+            {
                 // create connection
                 using var connection = factory.CreateConnection("Rabbit Payment Receiver");
                 using var channel = connection.CreateModel();
@@ -43,7 +48,8 @@ namespace PaymentManagement {
 
                 // Create a consumer to listen for messages
                 var consumer = new EventingBasicConsumer(channel);
-                consumer.Received += (sender, eventArgs) => {
+                consumer.Received += (sender, eventArgs) =>
+                {
                     string message = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
 
                     // Deserialize the message and print it to the console
@@ -58,7 +64,9 @@ namespace PaymentManagement {
                 channel.BasicConsume(queueName, false, consumer);
                 // Keep the channel open to listen for messages
                 while (true) { }
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine($"An error occurred: {e.Message}");
             }
         }
