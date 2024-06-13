@@ -23,6 +23,8 @@ if (app.Environment.IsDevelopment()) {
     app.UseSwaggerUI();
 }
 
+DotNetEnv.Env.Load();
+
 
 app.UseAuthorization();
 
