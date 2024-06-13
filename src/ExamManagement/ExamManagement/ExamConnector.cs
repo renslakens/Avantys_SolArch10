@@ -11,7 +11,7 @@ namespace ExamManagement
 {
     public class ExamConnector
     {
-        private readonly ConnectionFactory factory = new() { Uri = new Uri("amqp://guest:guest@localhost:5672") };
+        private readonly ConnectionFactory factory = new() { Uri = new Uri(Environment.GetEnvironmentVariable("RABBIT_ADDRESS")) };
         private const string _exchangeName = "ExamSolArchExchange";
         private const string _routingKey = "exam-sol-arch-routing-key";
         private const string _queueName = "ExamQueue";

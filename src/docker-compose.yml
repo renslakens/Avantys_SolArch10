@@ -45,24 +45,33 @@ services:
     ports:
       - "8090:8080"  # Adjust port as needed
       - "8091:8081"
+
     networks:
       - project_network
     depends_on:
       - rabbitmq
       - mongodb
 
-  # project2:
-    # image: mcr.microsoft.com/dotnet/aspnet:8.0
-    # container_name: project2_container
-    # build:
-      # context: .
-      # dockerfile: Dockerfile
-      # args:
-        # PROJECT_DIR: ./Project2
-    # ports:
-      # - "8082:80"  # Adjust port as needed
-    # networks:
-      # - project_network
+  ExamManager:
+    image: mcr.microsoft.com/dotnet/aspnet:7.0
+    container_name: exam_container
+    build:
+      context: ./ExamManagement/ExamManagement
+      dockerfile: Dockerfile
+      args:
+        PROJECT_DIR: ./ExamManagement/ExamManagement/Dockerfile
+    environment:
+      - RABBIT_ADDRESS=${RABBIT_ADDRESS}
+    ports:
+      - "8092:80"  # Adjust port as needed
+      - "8093:81"
+
+    networks:
+      - project_network
+    depends_on:
+      - rabbitmq
+      - mongodb
+
 volumes:
   mongo-data:
     driver: local
