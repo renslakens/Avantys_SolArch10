@@ -50,3 +50,5 @@ coverage/
 *.vs/
 *.pidb
 .vscode/
+# AssemblyInfo.cs
+**/AssemblyInfo.cs
