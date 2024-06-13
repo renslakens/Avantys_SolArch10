@@ -24,13 +24,13 @@ namespace ExamManagement.Models
         public int Credits { get; set; }
 
         //TODO: change to class model
-        public string Class { get; set; }
+        public Class Class { get; set; }
 
         //TODO: change to proctor model
-        public string Proctor { get; set; }
+        public Proctor Proctor { get; set; }
 
         //TODO: change to module model
-        public string Module { get; set; }
+        public Module Module { get; set; }
 
         public bool IsReviewed { get; set; }
 
