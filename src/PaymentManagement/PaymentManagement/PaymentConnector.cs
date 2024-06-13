@@ -6,16 +6,18 @@ using System.Text.Json;
 
 namespace PaymentManagement {
     public class PaymentConnector {
-        private readonly ConnectionFactory factory = new() { Uri = new Uri("amqp://guest:guest@localhost:5672") };
+        private readonly ConnectionFactory factory = new() { Uri = new Uri(Environment.GetEnvironmentVariable("RABBIT_ADDRESS")) };
         private const string exchangeName = "PaymentSolArchExchange";
         private const string routingKey = "payment-sol-arch-routing-key";
         private const string queueName = "PaymentQueue";
 
-        public void SendPayment<T>(T messageObj, string CexchangeName, string CroutingKey) {
+        public void PaymentSender<T>(T messageObj, string CexchangeName, string CroutingKey, string CqueueName ) {
             // create connection
             using var connection = factory.CreateConnection("Rabbit Payment Sender");
             using var channel = connection.CreateModel();
             channel.ExchangeDeclare(CexchangeName, ExchangeType.Direct);
+            channel.QueueDeclare(CqueueName, false, false, false, null);
+            channel.QueueBind(CqueueName, CexchangeName, CroutingKey, null);
 
             // Serialize the message object and send it to the exchange
             string message = JsonSerializer.Serialize(messageObj);
@@ -27,34 +29,38 @@ namespace PaymentManagement {
             connection.Close();
         }
 
-        public void ReceivePayment<T>() {
-            // create connection
-            using var connection = factory.CreateConnection("Rabbit Payment Receiver");
-            using var channel = connection.CreateModel();
+        public void PaymentReceiver<T>() {
+            try {
+                // create connection
+                using var connection = factory.CreateConnection("Rabbit Payment Receiver");
+                using var channel = connection.CreateModel();
 
-            // Declare the exchange, queue, and bind the queue to the exchange
-            channel.ExchangeDeclare(exchangeName, ExchangeType.Direct);
-            channel.QueueDeclare(queueName, false, false, false, null);
-            channel.QueueBind(queueName, exchangeName, routingKey, null);
-            channel.BasicQos(0, 1, false);
+                // Declare the exchange, queue, and bind the queue to the exchange
+                channel.ExchangeDeclare(exchangeName, ExchangeType.Direct);
+                channel.QueueDeclare(queueName, false, false, false, null);
+                channel.QueueBind(queueName, exchangeName, routingKey, null);
+                channel.BasicQos(0, 1, false);
 
-            // Create a consumer to listen for messages
-            var consumer = new EventingBasicConsumer(channel);
-            consumer.Received += (sender, eventArgs) => {
-                string message = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
+                // Create a consumer to listen for messages
+                var consumer = new EventingBasicConsumer(channel);
+                consumer.Received += (sender, eventArgs) => {
+                    string message = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
 
-                // Deserialize the message and print it to the console
-                T messageObj = JsonSerializer.Deserialize<T>(message);
-                Console.WriteLine($"Received message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
+                    // Deserialize the message and print it to the console
+                    T messageObj = JsonSerializer.Deserialize<T>(message);
+                    Console.WriteLine($"Received message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
 
-                // Acknowledge the message
-                channel.BasicAck(eventArgs.DeliveryTag, false);
-            };
+                    // Acknowledge the message
+                    channel.BasicAck(eventArgs.DeliveryTag, false);
+                };
 
-            // Start listening for messages
-            channel.BasicConsume(queueName, false, consumer);
-            // Keep the channel open to listen for messages
-            while (true) { }
+                // Start listening for messages
+                channel.BasicConsume(queueName, false, consumer);
+                // Keep the channel open to listen for messages
+                while (true) { }
+            } catch (Exception e) {
+                Console.WriteLine($"An error occurred: {e.Message}");
+            }
         }
     }
 }
