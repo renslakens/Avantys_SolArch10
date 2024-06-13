@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/rens/dev/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/PaymentManagement.csproj": {}
+    "C:\\solArchNew\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj": {}
   },
   "projects": {
-    "/Users/rens/dev/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/PaymentManagement.csproj": {
+    "C:\\solArchNew\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/rens/dev/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/PaymentManagement.csproj",
+        "projectUniqueName": "C:\\solArchNew\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj",
         "projectName": "PaymentManagement",
-        "projectPath": "/Users/rens/dev/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/PaymentManagement.csproj",
-        "packagesPath": "/Users/rens/.nuget/packages/",
-        "outputPath": "/Users/rens/dev/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/",
+        "projectPath": "C:\\solArchNew\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj",
+        "packagesPath": "C:\\Users\\niekg\\.nuget\\packages\\",
+        "outputPath": "C:\\solArchNew\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/rens/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\niekg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -44,7 +51,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.6.2, )"
             }
           },
           "imports": [
@@ -66,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace PaymentManagement {
     public class PaymentConnector {
-        private readonly ConnectionFactory factory = new() { Uri = new Uri("amqp://guest:guest@localhost:5672") };
+        private readonly ConnectionFactory factory = new() { Uri = new Uri("amqp://guest:guest@192.168.112.1:5672") };
         private const string exchangeName = "PaymentSolArchExchange";
         private const string routingKey = "payment-sol-arch-routing-key";
         private const string queueName = "PaymentQueue";
@@ -30,33 +30,37 @@ namespace PaymentManagement {
         }
 
         public void PaymentReceiver<T>() {
-            // create connection
-            using var connection = factory.CreateConnection("Rabbit Payment Receiver");
-            using var channel = connection.CreateModel();
+            try {
+                // create connection
+                using var connection = factory.CreateConnection("Rabbit Payment Receiver");
+                using var channel = connection.CreateModel();
 
-            // Declare the exchange, queue, and bind the queue to the exchange
-            channel.ExchangeDeclare(exchangeName, ExchangeType.Direct);
-            channel.QueueDeclare(queueName, false, false, false, null);
-            channel.QueueBind(queueName, exchangeName, routingKey, null);
-            channel.BasicQos(0, 1, false);
+                // Declare the exchange, queue, and bind the queue to the exchange
+                channel.ExchangeDeclare(exchangeName, ExchangeType.Direct);
+                channel.QueueDeclare(queueName, false, false, false, null);
+                channel.QueueBind(queueName, exchangeName, routingKey, null);
+                channel.BasicQos(0, 1, false);
 
-            // Create a consumer to listen for messages
-            var consumer = new EventingBasicConsumer(channel);
-            consumer.Received += (sender, eventArgs) => {
-                string message = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
+                // Create a consumer to listen for messages
+                var consumer = new EventingBasicConsumer(channel);
+                consumer.Received += (sender, eventArgs) => {
+                    string message = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
 
-                // Deserialize the message and print it to the console
-                T messageObj = JsonSerializer.Deserialize<T>(message);
-                Console.WriteLine($"Received message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
+                    // Deserialize the message and print it to the console
+                    T messageObj = JsonSerializer.Deserialize<T>(message);
+                    Console.WriteLine($"Received message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
 
-                // Acknowledge the message
-                channel.BasicAck(eventArgs.DeliveryTag, false);
-            };
+                    // Acknowledge the message
+                    channel.BasicAck(eventArgs.DeliveryTag, false);
+                };
 
-            // Start listening for messages
-            channel.BasicConsume(queueName, false, consumer);
-            // Keep the channel open to listen for messages
-            while (true) { }
+                // Start listening for messages
+                channel.BasicConsume(queueName, false, consumer);
+                // Keep the channel open to listen for messages
+                while (true) { }
+            } catch (Exception e) {
+                Console.WriteLine($"An error occurred: {e.Message}");
+            }
         }
     }
 }

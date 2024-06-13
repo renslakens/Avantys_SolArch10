@@ -1,10 +1,18 @@
 version: '3.8'
 
+
+networks:
+  project_network:
+    driver: bridge
+
+
 services:
   rabbitmq:
     image: rabbitmq:3-management
     container_name: rabbit-server
     hostname: rmq
+    networks:
+      - project_network
     ports:
       - "8080:15672"   # Management UI
       - "5672:5672"    # AMQP protocol port
@@ -17,11 +25,42 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: solarch10
+    networks:
+      - project_network
     ports:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
 
+  PaymentManager:
+    image: mcr.microsoft.com/dotnet/aspnet:8.0
+    container_name: payment_container
+    build:
+      context: ./PaymentManagement/PaymentManagement
+      dockerfile: Dockerfile
+      args:
+        PROJECT_DIR: ./PaymentManagement/PaymentManagement/Dockerfile
+    ports:
+      - "8090:8080"  # Adjust port as needed
+      - "8091:8081"
+    networks:
+      - project_network
+    depends_on:
+      - rabbitmq
+      - mongodb
+
+  # project2:
+    # image: mcr.microsoft.com/dotnet/aspnet:8.0
+    # container_name: project2_container
+    # build:
+      # context: .
+      # dockerfile: Dockerfile
+      # args:
+        # PROJECT_DIR: ./Project2
+    # ports:
+      # - "8082:80"  # Adjust port as needed
+    # networks:
+      # - project_network
 volumes:
   mongo-data:
     driver: local
