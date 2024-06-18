@@ -9,5 +9,6 @@
 
     public class CollectionsSettings {
         public string PermissionsCollectionName { get; set; } = null!;
+        public string PaymentsCollectionName { get; set; } = null!;
     }
 }

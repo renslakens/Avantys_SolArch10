@@ -7,17 +7,17 @@ namespace PaymentManagement.Services
     public class PermissionService
     {
 
-        private readonly IMongoCollection<Permissions> _permissionsCollection;
+        private readonly IMongoCollection<Permission> _permissionsCollection;
 
-        public PermissionService(IOptions<PaymentManagementDatabaseSettings> examManagementDatabaseSettings)
+        public PermissionService(IOptions<PaymentManagementDatabaseSettings> paymentManagementDatabaseSettings)
         {
-            var client = new MongoClient(examManagementDatabaseSettings.Value.ConnectionString);
-            var database = client.GetDatabase(examManagementDatabaseSettings.Value.DatabaseName);
+            var client = new MongoClient(paymentManagementDatabaseSettings.Value.ConnectionString);
+            var database = client.GetDatabase(paymentManagementDatabaseSettings.Value.DatabaseName);
 
-            _permissionsCollection = database.GetCollection<Permissions>(examManagementDatabaseSettings.Value.Collections.PermissionsCollectionName);
+            _permissionsCollection = database.GetCollection<Permission>(paymentManagementDatabaseSettings.Value.Collections.PermissionsCollectionName);
         }
 
-        public async Task<List<Permissions>> GetAsync()
+        public async Task<List<Permission>> GetAsync()
         {
             return await _permissionsCollection.Find(Permissions => true).ToListAsync();
         }

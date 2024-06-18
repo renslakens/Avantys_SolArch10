@@ -11,6 +11,7 @@ builder.Services.Configure<PaymentManagementDatabaseSettings>(
 
 
 builder.Services.AddSingleton<PermissionService>();
+builder.Services.AddSingleton<PaymentService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

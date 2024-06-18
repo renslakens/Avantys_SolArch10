@@ -13,15 +13,15 @@ namespace PaymentManagement.RabbitConnectors
         private const string routingKey = "sol-arch-routing-key";
         private const string queueName = "PaymentQueue";
 
-        public void PaymentSender<T>(T messageObj, string CqueueName)
+        public void PaymentSender<T>(T messageObj)
         {
             // create connection
             using var connection = factory.CreateConnection("Rabbit Payment Sender");
             using var channel = connection.CreateModel();
 
             channel.ExchangeDeclare(exchangeName, ExchangeType.Fanout);
-            channel.QueueDeclare(CqueueName, false, false, false, null);
-            channel.QueueBind(CqueueName, exchangeName, routingKey, null);
+            channel.QueueDeclare(queueName, false, false, false, null);
+            channel.QueueBind(queueName, exchangeName, routingKey, null);
 
             // Serialize the message object and send it to the exchange
             string message = JsonSerializer.Serialize(messageObj);
