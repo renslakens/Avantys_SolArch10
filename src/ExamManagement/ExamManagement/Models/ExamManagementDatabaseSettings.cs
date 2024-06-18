@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace ExamManagement.Models
 {
-    public class ExaxmManagementDatabaseSettings
+    public class ExamManagementDatabaseSettings
     {
+        public string ConnectionString { get; set; } = null!;
+        
         public string DatabaseName { get; set; } = null!;
 
         public CollectionsSettings Collections { get; set; } = null!;
