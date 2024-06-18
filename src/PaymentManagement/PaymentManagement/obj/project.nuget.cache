@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "21Hs/bIuIFmfA59cqeo178YpPRvPGGE1njAZeY3hMENtVLP9/QwQbL0tjVXX7PJC02Fy6udSAER54KaorbV8og==",
+  "dgSpecHash": "CdC3Su0QaeVa0lGkYzLBDqmx8bscM3sDbrPblsjucdUgw5uak+opobfxlTvS+9XaUGs8wvgn1rtt8rWWHVLiwQ==",
   "success": true,
-  "projectFilePath": "C:\\solArchNew\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj",
+  "projectFilePath": "C:\\Users\\niekg\\source\\repos\\NewSolarch\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\niekg\\.nuget\\packages\\dotnetenv\\3.0.0\\dotnetenv.3.0.0.nupkg.sha512",
     "C:\\Users\\niekg\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

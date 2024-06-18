@@ -52,6 +52,8 @@ coverage/
 .vscode/
 # AssemblyInfo.cs
 **/AssemblyInfo.cs
+**/bin/*
+**/bin/**
 **/bin/
-**/obj/
+**/obj
 .env
