@@ -15,25 +15,25 @@ namespace ExamManagement.Models
 
         public string Name { get; set; }
 
-        public DateTime StartDateTime { get; set; }
+        // public DateTime StartDateTime { get; set; }
 
-        public DateTime EndDateTime { get; set; }
+        // public DateTime EndDateTime { get; set; }
 
-        public double Grade { get; set; }
+        // public double Grade { get; set; }
 
-        public int Credits { get; set; }
+        // public int Credits { get; set; }
 
-        //TODO: change to class model
-        public Class Class { get; set; }
+        // //TODO: change to class model
+        // public Class Class { get; set; }
 
-        //TODO: change to proctor model
-        public Proctor Proctor { get; set; }
+        // //TODO: change to proctor model
+        // public Proctor Proctor { get; set; }
 
-        //TODO: change to module model
-        public Module Module { get; set; }
+        // //TODO: change to module model
+        // public Module Module { get; set; }
 
-        public bool IsReviewed { get; set; }
+        // public bool IsReviewed { get; set; }
 
-        public string Classroom { get; set; } 
+        // public string Classroom { get; set; } 
     }
 }

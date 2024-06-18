@@ -1,11 +1,14 @@
 ﻿using ExamManagement;
 using ExamManagement.Models;
+using ExamManagement.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.Configure<ExaxmManagementDatabaseSettings>(
     builder.Configuration.GetSection("ExamManagementDatabase"));
+
+builder.Services.AddSingleton<ExamsService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
