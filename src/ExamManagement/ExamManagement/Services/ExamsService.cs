@@ -12,9 +12,9 @@ namespace ExamManagement.Services
     {
         private readonly IMongoCollection<Exam> _examsCollection;
 
-        public ExamsService(IOptions<ExaxmManagementDatabaseSettings> examManagementDatabaseSettings)
+        public ExamsService(IOptions<ExamManagementDatabaseSettings> examManagementDatabaseSettings)
         {
-            var client = new MongoClient(Environment.GetEnvironmentVariable("MONGODB_ADDRESS"));
+            var client = new MongoClient(examManagementDatabaseSettings.Value.ConnectionString);
             var database = client.GetDatabase(examManagementDatabaseSettings.Value.DatabaseName);
 
             _examsCollection = database.GetCollection<Exam>(examManagementDatabaseSettings.Value.Collections.ExamsCollectionName);
