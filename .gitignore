@@ -56,4 +56,7 @@ coverage/
 **/bin/**
 **/bin/
 **/obj
+**/obj/*
+**/obj/**
+**/obj/
 .env
