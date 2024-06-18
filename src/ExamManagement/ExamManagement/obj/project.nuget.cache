@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "nx59mC3VgFo=",
+  "dgSpecHash": "iOnRzT4WQlc=",
   "success": true,
   "projectFilePath": "/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/ExamManagement.csproj",
   "expectedPackageFiles": [
     "/Users/ayrianna/.nuget/packages/awssdk.core/3.7.100.14/awssdk.core.3.7.100.14.nupkg.sha512",
     "/Users/ayrianna/.nuget/packages/awssdk.securitytoken/3.7.100.14/awssdk.securitytoken.3.7.100.14.nupkg.sha512",
+    "/Users/ayrianna/.nuget/packages/csvhelper/2.11.0/csvhelper.2.11.0.nupkg.sha512",
     "/Users/ayrianna/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
     "/Users/ayrianna/.nuget/packages/dotnetenv/3.0.0/dotnetenv.3.0.0.nupkg.sha512",
     "/Users/ayrianna/.nuget/packages/microsoft.aspnetcore.openapi/7.0.11/microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
@@ -108,9 +109,20 @@
     "/Users/ayrianna/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/Users/ayrianna/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
     "/Users/ayrianna/.nuget/packages/zstdsharp.port/0.7.3/zstdsharp.port.0.7.3.nupkg.sha512",
-    "/Users/ayrianna/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
     "/Users/ayrianna/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
-    "/Users/ayrianna/.nuget/packages/microsoft.netcore.app.host.osx-x64/7.0.20/microsoft.netcore.app.host.osx-x64.7.0.20.nupkg.sha512"
+    "/Users/ayrianna/.nuget/packages/microsoft.netcore.app.host.osx-x64/7.0.20/microsoft.netcore.app.host.osx-x64.7.0.20.nupkg.sha512",
+    "/Users/ayrianna/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CsvHelper 2.11.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CsvHelper",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }
