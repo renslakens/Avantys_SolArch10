@@ -1,8 +1,16 @@
-using PaymentManagement;
+using PaymentManagement.Models;
+using PaymentManagement.RabbitConnectors;
+using PaymentManagement.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.Configure<PaymentManagementDatabaseSettings>(
+    builder.Configuration.GetSection("PaymentManagementDatabase"));
+
+
+builder.Services.AddSingleton<PermissionService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

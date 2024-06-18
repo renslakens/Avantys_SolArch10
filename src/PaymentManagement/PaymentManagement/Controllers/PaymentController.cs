@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PaymentManagement.Models;
+using PaymentManagement.RabbitConnectors;
+using PaymentManagement.Services;
 
-namespace PaymentManagement.Controllers {
+namespace PaymentManagement.Controllers
+{
     [ApiController]
     [Route("[controller]")]
     public class PaymentController : ControllerBase {
@@ -9,13 +13,21 @@ namespace PaymentManagement.Controllers {
         private string paymentExchangeName = "PaymentSolArchExchange";
         private string paymentRoutingKey = "payment-sol-arch-routing-key";
         private string paymentQueueName = "PaymentQueue";
+        private readonly PermissionService _permessionsService;
 
-        public PaymentController(PaymentConnector paymentConnector) {
+        public PaymentController(PaymentConnector paymentConnector, PermissionService permessionsService) {
             _paymentConnector = paymentConnector;
+            _permessionsService = permessionsService;
+        }
+
+        [HttpGet]
+        public async Task<List<Permissions>> GetPermissions() {
+            return await _permessionsService.GetAsync();
         }
 
         [HttpPost("send")]
         public IActionResult SendPayment([FromBody] object payment) {
+            
             _paymentConnector.PaymentSender(payment, paymentQueueName );
             return Ok("Payment sent.");
         }

@@ -4,18 +4,21 @@ using System;
 using System.Text;
 using System.Text.Json;
 
-namespace PaymentManagement {
-    public class PaymentConnector {
+namespace PaymentManagement.RabbitConnectors
+{
+    public class PaymentConnector
+    {
         private readonly ConnectionFactory factory = new() { Uri = new Uri(Environment.GetEnvironmentVariable("RABBIT_ADDRESS")) };
         private const string exchangeName = "SolArchExchange";
         private const string routingKey = "sol-arch-routing-key";
         private const string queueName = "PaymentQueue";
 
-        public void PaymentSender<T>(T messageObj, string CqueueName ) {
+        public void PaymentSender<T>(T messageObj, string CqueueName)
+        {
             // create connection
             using var connection = factory.CreateConnection("Rabbit Payment Sender");
             using var channel = connection.CreateModel();
-        
+
             channel.ExchangeDeclare(exchangeName, ExchangeType.Fanout);
             channel.QueueDeclare(CqueueName, false, false, false, null);
             channel.QueueBind(CqueueName, exchangeName, routingKey, null);
@@ -30,9 +33,12 @@ namespace PaymentManagement {
             connection.Close();
         }
 
-        public void PaymentReceiver<T>() {
-            while (true) {
-                try {
+        public void PaymentReceiver<T>()
+        {
+            while (true)
+            {
+                try
+                {
                     // create connection
                     using var connection = factory.CreateConnection("Rabbit Payment Receiver");
                     using var channel = connection.CreateModel();
@@ -54,7 +60,7 @@ namespace PaymentManagement {
                         Console.WriteLine($"Received message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
 
                         processMessage(message);
-                        
+
                         // Acknowledge the message
                         channel.BasicAck(eventArgs.DeliveryTag, false);
                     };
@@ -65,7 +71,9 @@ namespace PaymentManagement {
                     // Keep the channel open to listen for messages
                     while (true) { }
 
-                } catch (Exception e) {
+                }
+                catch (Exception e)
+                {
                     Console.WriteLine($"An error occurred: {e.Message}");
                     Console.WriteLine("Retrying in 5 seconds...");
 
@@ -75,7 +83,8 @@ namespace PaymentManagement {
             }
         }
 
-        public void processMessage<T>(T message) {
+        public void processMessage<T>(T message)
+        {
         }
 
     }
