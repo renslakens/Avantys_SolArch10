@@ -5,7 +5,7 @@ namespace PaymentManagement.Models {
     public class Payment {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public ObjectId? Id = new ObjectId();
+        public ObjectId Id = new ObjectId();
         public double Amount { get; set; }
         public string Description { get; set; }
         public Student Student { get; set; }

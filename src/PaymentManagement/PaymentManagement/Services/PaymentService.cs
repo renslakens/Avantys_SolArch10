@@ -16,7 +16,7 @@ namespace PaymentManagement.Services {
             var client = new MongoClient(paymentManagementDatabaseSettings.Value.ConnectionString);
             var database = client.GetDatabase(paymentManagementDatabaseSettings.Value.DatabaseName);
 
-            _paymentsCollection = database.GetCollection<Payment>(paymentManagementDatabaseSettings.Value.Collections.PermissionsCollectionName);
+            _paymentsCollection = database.GetCollection<Payment>(paymentManagementDatabaseSettings.Value.Collections.PaymentsCollectionName);
         }
 
         public async Task<List<Payment>> GetAsync() {
@@ -25,8 +25,16 @@ namespace PaymentManagement.Services {
 
         public async Task<object> CreateAsync(Payment payment) {
             try {
-                await _paymentsCollection.InsertOneAsync(payment);
-                return payment;
+                var filter = Builders<Payment>.Filter.Eq(payment => payment.Id, payment.Id );
+                var result = await _paymentsCollection.Find(filter).FirstOrDefaultAsync();
+
+                if (result.Id != null)
+                {
+                    await _paymentsCollection.InsertOneAsync(payment);
+                    return payment;
+                } else {
+                    return new BadRequestObjectResult("Payment already exists.");
+                }
             } catch (Exception e) {
                 return e;
             }
