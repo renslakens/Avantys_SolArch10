@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ExamManagement.Models;
+using ExamManagement.CommandHandlers;
+using ExamManagement.Commands;
+using ExamManagement.Entities;
 using ExamManagement.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,17 +18,19 @@ namespace ExamManagement.Controllers
         private readonly ExamConnector _examConnector;
         private string examExchange = "ExamSolArchExchange";
         private string examRoutingKey = "exam-sol-arch-routing-key";
+        private readonly IScheduleExamCommandHandler _scheduleExamCommandHandler;
 
-        public ExamController(ExamConnector examConnector, ExamsService examsService)
+        public ExamController(ExamConnector examConnector, ExamsService examsService, IScheduleExamCommandHandler scheduleExamCommandHandler)
         {
             _examsService = examsService;
             _examConnector = examConnector;
+            _scheduleExamCommandHandler = scheduleExamCommandHandler ?? throw new ArgumentNullException(nameof(scheduleExamCommandHandler));
         }
 
         [HttpGet]
         public async Task<List<Exam>> GetExams()
         {
-            return await _examsService.GetAsync(); 
+            return await _examsService.GetAsync();
         }
 
         [HttpGet("{id}")]
@@ -47,6 +51,28 @@ namespace ExamManagement.Controllers
         {
             await _examsService.CreateAsync(newExam);
             return CreatedAtAction("GetExam", new { id = newExam.Id }, newExam);
+        }
+
+        [HttpPost("Schedule")]
+        public async Task<IActionResult> ScheduleExamAsync([FromBody] ScheduleExam command)
+        {
+            Console.WriteLine("HI " + command.examId + " " + command.studentId + " " + command.scheduledDate + " " + command.module);
+            try
+            {
+                Exam exam = await _scheduleExamCommandHandler.handleCommandAsync(command);
+
+                if (exam == null)
+                {
+                    return NotFound();
+                }
+
+                Console.WriteLine("Exam scheduled" + exam);
+                return Ok(exam);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut("{id}")]
@@ -76,11 +102,11 @@ namespace ExamManagement.Controllers
             return NoContent();
         }
 
-        [HttpPost("Send")]
-        public IActionResult SendExam([FromBody] Object exam)
-        {
-            _examConnector.SendExam(exam, examExchange, examRoutingKey, "ExamQueue");
-            return Ok("Exam sent successfully");
-        }
+        // [HttpPost("Send")]
+        // public IActionResult SendExam([FromBody] Object exam)
+        // {
+        //     _examConnector.Send(exam, examExchange, examRoutingKey, "ExamQueue");
+        //     return Ok("Exam sent successfully");
+        // }
     }
 }

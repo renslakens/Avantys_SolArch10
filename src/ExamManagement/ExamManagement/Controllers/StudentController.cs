@@ -9,19 +9,19 @@ namespace ExamManagement.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProctorController : ControllerBase
+    public class StudentController : ControllerBase
     {
-        private readonly ProctorsService _proctorsService;
+        private readonly StudentsService _StudentsService;
 
-        public ProctorController(ProctorsService proctorsService)
+        public StudentController(StudentsService StudentsService)
         {
-            _proctorsService = proctorsService;
+            _StudentsService = StudentsService;
         }
 
         [HttpGet("fetch")]
-        public async Task FetchProctorsAsync()
+        public async Task FetchStudentsAsync()
         {
-            await _proctorsService.FetchProctorsAsync();
+            await _StudentsService.FetchStudentsAsync();
         }
     }
 }

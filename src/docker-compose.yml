@@ -32,25 +32,25 @@ services:
     volumes:
       - mongo-data:/data/db
 
-  PaymentManager:
-    image: mcr.microsoft.com/dotnet/aspnet:8.0
-    container_name: payment_container
-    build:
-      context: ./PaymentManagement/PaymentManagement
-      dockerfile: Dockerfile
-      args:
-        PROJECT_DIR: ./PaymentManagement/PaymentManagement/Dockerfile
-    environment:
-      - RABBIT_ADDRESS=${RABBIT_ADDRESS}
-    ports:
-      - "8090:8080"  # Adjust port as needed
-      - "8091:8081"
+  # PaymentManager:
+  #   image: mcr.microsoft.com/dotnet/aspnet:8.0
+  #   container_name: payment_container
+  #   build:
+  #     context: ./PaymentManagement/PaymentManagement
+  #     dockerfile: Dockerfile
+  #     args:
+  #       PROJECT_DIR: ./PaymentManagement/PaymentManagement/Dockerfile
+  #   environment:
+  #     - RABBIT_ADDRESS=${RABBIT_ADDRESS}
+  #   ports:
+  #     - "8090:8080"  # Adjust port as needed
+  #     - "8091:8081"
 
-    networks:
-      - project_network
-    depends_on:
-      - rabbitmq
-      - mongodb
+  #   networks:
+  #     - project_network
+  #   depends_on:
+  #     - rabbitmq
+  #     - mongodb
 
   ExamManager:
     image: mcr.microsoft.com/dotnet/aspnet:7.0

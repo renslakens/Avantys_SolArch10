@@ -10,19 +10,19 @@ using MongoDB.Driver;
 
 namespace ExamManagement.Services
 {
-    public class ProctorsService
+    public class StudentsService
     {
-        private readonly IMongoCollection<Proctor> _proctorsCollection;
+        private readonly IMongoCollection<Student> _StudentsCollection;
 
-        public ProctorsService(IOptions<ExamManagementDatabaseSettings> examManagementDatabaseSettings)
+        public StudentsService(IOptions<ExamManagementDatabaseSettings> examManagementDatabaseSettings)
         {
             var client = new MongoClient(examManagementDatabaseSettings.Value.ConnectionString);
             var database = client.GetDatabase(examManagementDatabaseSettings.Value.DatabaseName);
 
-            _proctorsCollection = database.GetCollection<Proctor>(examManagementDatabaseSettings.Value.Collections.ProctorsCollectionName);
+            _StudentsCollection = database.GetCollection<Student>(examManagementDatabaseSettings.Value.Collections.StudentsCollectionName);
         }
 
-        public async Task FetchProctorsAsync()
+        public async Task FetchStudentsAsync()
         {
             using (var client = new HttpClient())
             {
@@ -35,22 +35,22 @@ namespace ExamManagement.Services
 
                     var records = ParseCsv(data);
 
-                    var proctors = new List<Proctor>();
+                    var Students = new List<Student>();
                     foreach (var record in records)
                     {
-                        var filter = Builders<Proctor>.Filter.And(
-                            Builders<Proctor>.Filter.Eq(p => p.CompanyName, record.CompanyName),
-                            Builders<Proctor>.Filter.Eq(p => p.FirstName, record.FirstName),
-                            Builders<Proctor>.Filter.Eq(p => p.LastName, record.LastName),
-                            Builders<Proctor>.Filter.Eq(p => p.PhoneNumber, record.PhoneNumber),
-                            Builders<Proctor>.Filter.Eq(p => p.Address, record.Address)
+                        var filter = Builders<Student>.Filter.And(
+                            Builders<Student>.Filter.Eq(p => p.CompanyName, record.CompanyName),
+                            Builders<Student>.Filter.Eq(p => p.FirstName, record.FirstName),
+                            Builders<Student>.Filter.Eq(p => p.LastName, record.LastName),
+                            Builders<Student>.Filter.Eq(p => p.PhoneNumber, record.PhoneNumber),
+                            Builders<Student>.Filter.Eq(p => p.Address, record.Address)
                         );
 
-                        var existingProctor = await _proctorsCollection.Find(filter).FirstOrDefaultAsync();
+                        var existingStudent = await _StudentsCollection.Find(filter).FirstOrDefaultAsync();
 
-                        if (existingProctor == null)
+                        if (existingStudent == null)
                         {
-                            var proctor = new Proctor
+                            var Student = new Student
                             {
                                 CompanyName = record.CompanyName,
                                 FirstName = record.FirstName,
@@ -58,13 +58,13 @@ namespace ExamManagement.Services
                                 PhoneNumber = record.PhoneNumber,
                                 Address = record.Address
                             };
-                            proctors.Add(proctor);
+                            Students.Add(Student);
                         }
                     }
 
-                    if (proctors.Any())
+                    if (Students.Any())
                     {
-                        await _proctorsCollection.InsertManyAsync(proctors);
+                        await _StudentsCollection.InsertManyAsync(Students);
                         Console.WriteLine("Data successfully inserted into the MongoDB collection.");
                     }
                     else

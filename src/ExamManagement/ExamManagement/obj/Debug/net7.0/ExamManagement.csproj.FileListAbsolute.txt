@@ -46,3 +46,6 @@
 /Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/bin/Debug/net7.0/runtimes/linux/native/libmongocrypt.so
 /Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/bin/Debug/net7.0/runtimes/osx/native/libmongocrypt.dylib
 /Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/bin/Debug/net7.0/runtimes/win/native/mongocrypt.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/bin/Debug/net7.0/CsvHelper.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/bin/Debug/net7.0/DotNetEnv.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/bin/Debug/net7.0/Sprache.dll

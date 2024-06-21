@@ -5289,26 +5289,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\niekg\\.nuget\\packages\\": {}
+    "/Users/ayrianna/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\solArchNew\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj",
+      "projectUniqueName": "/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/PaymentManagement.csproj",
       "projectName": "PaymentManagement",
-      "projectPath": "C:\\solArchNew\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\PaymentManagement.csproj",
-      "packagesPath": "C:\\Users\\niekg\\.nuget\\packages\\",
-      "outputPath": "C:\\solArchNew\\Avantys_SolArch10\\src\\PaymentManagement\\PaymentManagement\\obj\\",
+      "projectPath": "/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/PaymentManagement.csproj",
+      "packagesPath": "/Users/ayrianna/.nuget/packages/",
+      "outputPath": "/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\niekg\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/ayrianna/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5364,7 +5362,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -18,7 +18,7 @@ namespace ExamManagement.Models
     {
         public string ExamsCollectionName { get; set; } = null!;
 
-        public string ClassesCollectionName { get; set; } = null!;
+        public string StudentsCollectionName { get; set; } = null!;
 
         public string ModulesCollectionName { get; set; } = null!;
 

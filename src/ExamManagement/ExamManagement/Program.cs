@@ -1,6 +1,8 @@
 ﻿using ExamManagement;
+using ExamManagement.CommandHandlers;
 using ExamManagement.Models;
 using ExamManagement.Services;
+using ExamManagement.CommandHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,12 @@ builder.Services.Configure<ExamManagementDatabaseSettings>(
     builder.Configuration.GetSection("ExamManagementDatabase"));
 
 builder.Services.AddSingleton<ExamsService>();
-builder.Services.AddSingleton<ProctorsService>();
+builder.Services.AddSingleton<StudentsService>();
+
+builder.Services.AddTransient<IGradeExamCommandHandler, GradeExamCommandHandler>();
+builder.Services.AddTransient<IScheduleExamCommandHandler, ScheduleExamCommandHandler>();
+builder.Services.AddTransient<IConductExamCommandHandler, ConductExamCommandHandler>();
+builder.Services.AddTransient<IPublishResultCommandHandler, PublishResultCommandHandler>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -17,7 +24,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<ExamConnector>();
-builder.Services.AddHostedService<ExamReceiverService>();
+// builder.Services.AddHostedService<ExamReceiverService>();
 
 var app = builder.Build();
 

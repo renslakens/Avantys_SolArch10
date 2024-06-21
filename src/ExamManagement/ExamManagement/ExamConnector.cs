@@ -12,28 +12,33 @@ namespace ExamManagement
     public class ExamConnector
     {
         private readonly ConnectionFactory factory = new() { Uri = new Uri(Environment.GetEnvironmentVariable("RABBIT_ADDRESS")) };
-        private const string _exchangeName = "ExamSolArchExchange";
-        private const string _routingKey = "exam-sol-arch-routing-key";
+        private const string _exchangeName = "SolArchExchange";
+        private const string _routingKey = "sol-arch-routing-key";
         private const string _queueName = "ExamQueue";
 
-        public void SendExam<T>(T messageObj, string exchangeName, string routingKey, string queueName)
+        public async Task Send<T>(string messageType, T messageObj)
         {
             var connection = factory.CreateConnection("Rabbit Exam Sender");
             var channel = connection.CreateModel();
 
-            channel.ExchangeDeclare(exchangeName, ExchangeType.Direct);
-            channel.QueueDeclare(queueName, false, false, false, null);
-            channel.QueueBind(queueName, exchangeName, routingKey, null);
+            channel.ExchangeDeclare(_exchangeName, ExchangeType.Fanout);
+            channel.QueueDeclare(_queueName, false, false, false, null);
+            channel.QueueBind(_queueName, _exchangeName, _routingKey, null);
 
+            Console.WriteLine($"Sending message");
             string message = JsonSerializer.Serialize(messageObj);
             byte[] body = Encoding.UTF8.GetBytes(message);
-            channel.BasicPublish(exchangeName, routingKey, null, body);
+
+            IBasicProperties properties = channel.CreateBasicProperties();
+            properties.Headers = new Dictionary<string, object> { { "MessageType", messageType } };
+
+            channel.BasicPublish(_exchangeName, _routingKey, properties, body);
 
             channel.Close();
             connection.Close();
         }
 
-        public void ReceiveExam<T>()
+        public void Receive<T>()
         {
             var connection = factory.CreateConnection("Rabbit Exam Receiver");
             var channel = connection.CreateModel();
@@ -48,6 +53,7 @@ namespace ExamManagement
             {
                 string message = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
 
+                Console.WriteLine($"Received message");
                 T messageObj = JsonSerializer.Deserialize<T>(message);
                 Console.WriteLine($"Received message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
 

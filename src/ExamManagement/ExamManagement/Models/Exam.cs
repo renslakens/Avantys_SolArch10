@@ -13,24 +13,25 @@ namespace ExamManagement.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        public string Name { get; set; }
+        public DateTime scheduledDate { get; set; }
 
-        // public DateTime StartDateTime { get; set; }
+        public Student student { get; set; }
+        
+        public Module Module { get; set; }
 
-        // public DateTime EndDateTime { get; set; }
 
-        // public double Grade { get; set; }
+        public double? grade { get; set; }
 
         // public int Credits { get; set; }
 
-        // //TODO: change to class model
-        // public Class Class { get; set; }
+        //TODO: change to class model
+
 
         // //TODO: change to proctor model
         // public Proctor Proctor { get; set; }
 
-        // //TODO: change to module model
-        // public Module Module { get; set; }
+        //TODO: change to module model
+
 
         // public bool IsReviewed { get; set; }
 

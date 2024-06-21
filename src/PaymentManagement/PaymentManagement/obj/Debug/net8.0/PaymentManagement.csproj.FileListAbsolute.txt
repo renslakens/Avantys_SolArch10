@@ -1,70 +1,106 @@
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\appsettings.json
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\PaymentManagement.exe
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\PaymentManagement.deps.json
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\PaymentManagement.runtimeconfig.json
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\PaymentManagement.dll
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\PaymentManagement.pdb
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\RabbitMQ.Client.dll
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.csproj.AssemblyReference.cache
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.AssemblyInfoInputs.cache
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.AssemblyInfo.cs
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.csproj.CoreCompileInputs.cache
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.sourcelink.json
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets\msbuild.PaymentManagement.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets\msbuild.build.PaymentManagement.props
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.PaymentManagement.props
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.PaymentManagement.props
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\scopedcss\bundle\PaymentManagement.styles.css
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.csproj.CopyComplete
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.dll
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\refint\PaymentManagement.dll
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.pdb
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.genruntimeconfig.cache
-C:\Users\niekg\Source\Repos\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\ref\PaymentManagement.dll
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\appsettings.Development.json
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\appsettings.json
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\PaymentManagement.exe
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\PaymentManagement.deps.json
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\PaymentManagement.runtimeconfig.json
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\PaymentManagement.dll
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\PaymentManagement.pdb
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\RabbitMQ.Client.dll
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.csproj.AssemblyReference.cache
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.GeneratedMSBuildEditorConfig.editorconfig
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.AssemblyInfoInputs.cache
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.AssemblyInfo.cs
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.csproj.CoreCompileInputs.cache
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.MvcApplicationPartsAssemblyInfo.cs
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.MvcApplicationPartsAssemblyInfo.cache
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.sourcelink.json
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets.build.json
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets.development.json
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets\msbuild.PaymentManagement.Microsoft.AspNetCore.StaticWebAssets.props
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets\msbuild.build.PaymentManagement.props
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.PaymentManagement.props
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.PaymentManagement.props
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\staticwebassets.pack.json
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\scopedcss\bundle\PaymentManagement.styles.css
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentM.D2B68A40.Up2Date
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.dll
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\refint\PaymentManagement.dll
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.pdb
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\PaymentManagement.genruntimeconfig.cache
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\obj\Debug\net8.0\ref\PaymentManagement.dll
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\DotNetEnv.dll
-C:\solArchNew\Avantys_SolArch10\src\PaymentManagement\PaymentManagement\bin\Debug\net8.0\Sprache.dll
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/appsettings.json
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.exe
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.deps.json
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.runtimeconfig.json
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.dll
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.pdb
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/RabbitMQ.Client.dll
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.csproj.AssemblyReference.cache
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.AssemblyInfoInputs.cache
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.AssemblyInfo.cs
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.csproj.CoreCompileInputs.cache
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.sourcelink.json
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.PaymentManagement.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.build.PaymentManagement.props
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.PaymentManagement.props
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.PaymentManagement.props
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets.pack.json
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/scopedcss/bundle/PaymentManagement.styles.css
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.csproj.CopyComplete
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.dll
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/refint/PaymentManagement.dll
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.pdb
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.genruntimeconfig.cache
+C:/Users/niekg/Source/Repos/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/ref/PaymentManagement.dll
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/appsettings.Development.json
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/appsettings.json
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.exe
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.deps.json
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.runtimeconfig.json
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.dll
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.pdb
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/RabbitMQ.Client.dll
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.csproj.AssemblyReference.cache
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.GeneratedMSBuildEditorConfig.editorconfig
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.AssemblyInfoInputs.cache
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.AssemblyInfo.cs
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.csproj.CoreCompileInputs.cache
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.MvcApplicationPartsAssemblyInfo.cs
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.MvcApplicationPartsAssemblyInfo.cache
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.sourcelink.json
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets.build.json
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets.development.json
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.PaymentManagement.Microsoft.AspNetCore.StaticWebAssets.props
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.build.PaymentManagement.props
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.PaymentManagement.props
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.PaymentManagement.props
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets.pack.json
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/scopedcss/bundle/PaymentManagement.styles.css
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentM.D2B68A40.Up2Date
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.dll
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/refint/PaymentManagement.dll
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.pdb
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.genruntimeconfig.cache
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/ref/PaymentManagement.dll
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/DotNetEnv.dll
+C:/solArchNew/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Sprache.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/appsettings.Development.json
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/appsettings.json
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.deps.json
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.runtimeconfig.json
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/PaymentManagement.pdb
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/DotNetEnv.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/RabbitMQ.Client.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Sprache.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.csproj.AssemblyReference.cache
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.AssemblyInfoInputs.cache
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.AssemblyInfo.cs
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.csproj.CoreCompileInputs.cache
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.MvcApplicationPartsAssemblyInfo.cs
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.MvcApplicationPartsAssemblyInfo.cache
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.sourcelink.json
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets.build.json
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets.development.json
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.PaymentManagement.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.build.PaymentManagement.props
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.PaymentManagement.props
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.PaymentManagement.props
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/scopedcss/bundle/PaymentManagement.styles.css
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentM.D2B68A40.Up2Date
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/refint/PaymentManagement.dll
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.pdb
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/PaymentManagement.genruntimeconfig.cache
+/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/PaymentManagement/PaymentManagement/obj/Debug/net8.0/ref/PaymentManagement.dll

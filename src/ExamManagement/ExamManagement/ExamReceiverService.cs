@@ -16,7 +16,7 @@ namespace ExamManagement
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            return Task.Run(() => _examConnector.ReceiveExam<dynamic>(), stoppingToken);
+            return Task.Run(() => _examConnector.Receive<dynamic>(), stoppingToken);
         }
     }
 }
