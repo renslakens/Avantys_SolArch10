@@ -26,7 +26,10 @@ namespace ExamManagement
             channel.QueueBind(_queueName, _exchangeName, _routingKey, null);
 
             Console.WriteLine($"Sending message");
+            Console.WriteLine("Message Type: " + messageType);
+            Console.WriteLine("Message: " + messageObj.ToString());
             string message = JsonSerializer.Serialize(messageObj);
+            Console.WriteLine($"Sending message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
             byte[] body = Encoding.UTF8.GetBytes(message);
 
             IBasicProperties properties = channel.CreateBasicProperties();

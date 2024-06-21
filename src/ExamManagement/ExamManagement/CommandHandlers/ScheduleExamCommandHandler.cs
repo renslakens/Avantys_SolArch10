@@ -14,9 +14,12 @@ namespace ExamManagement.CommandHandlers
         public Task<Exam> handleCommandAsync(ScheduleExam command)
         {
             Console.WriteLine("Handling ScheduleExam command" + command);
+            Console.WriteLine("Handling ScheduleExam command" + command.studentId + " " + command.scheduledDate + " " + command.module.name);
             Exam exam = new Exam(command.examId);
 
             exam.Schedule(command.studentId, command.scheduledDate, command.module);
+
+            Console.WriteLine("Exam scheduled" + exam.Id + " " + exam.StudentId + " " + exam.scheduledDate + " " + exam.module.name);
 
             ExamConnector.Send<Exam>("ScheduleExam" ,exam);
 

@@ -12,6 +12,7 @@ builder.Services.Configure<ExamManagementDatabaseSettings>(
 
 builder.Services.AddSingleton<ExamsService>();
 builder.Services.AddSingleton<StudentsService>();
+builder.Services.AddSingleton<ScheduleExamCommandHandler>();
 
 builder.Services.AddTransient<IGradeExamCommandHandler, GradeExamCommandHandler>();
 builder.Services.AddTransient<IScheduleExamCommandHandler, ScheduleExamCommandHandler>();
