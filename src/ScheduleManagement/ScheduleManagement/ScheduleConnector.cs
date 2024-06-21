@@ -6,7 +6,7 @@ using RabbitMQ.Client.Events;
 namespace ScheduleManagement;
 
 public class ScheduleConnector {
-    private readonly ConnectionFactory factory = new() { Uri = new Uri("amqp://guest:guest@localhost:5672") };
+    private readonly ConnectionFactory factory = new() { Uri = new Uri(Environment.GetEnvironmentVariable("RABBIT_ADDRESS")) };
     private const string exchangeName = "ScheduleSolArchExchange";
     private const string routingKey = "schedule-sol-arch-routing-key";
     private const string queueName = "ScheduleQueue";
