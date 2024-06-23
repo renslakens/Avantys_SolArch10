@@ -19,7 +19,6 @@ namespace ExamManagement.Models
         
         public Module Module { get; set; }
 
-
         public double? grade { get; set; }
 
         // public int Credits { get; set; }

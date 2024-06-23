@@ -56,7 +56,7 @@ namespace ExamManagement.Controllers
         [HttpPost("Schedule")]
         public async Task<IActionResult> ScheduleExamAsync([FromBody] ScheduleExam command)
         {
-            Console.WriteLine("HI " + command.examId + " " + command.studentId + " " + command.scheduledDate + " " + command.module);
+            Console.WriteLine("HI " + command.MessageId + command.examId + " " + command.studentId + " " + command.scheduledDate + " " + command.module);
             try
             {
                 Exam exam = await _scheduleExamCommandHandler.handleCommandAsync(command);

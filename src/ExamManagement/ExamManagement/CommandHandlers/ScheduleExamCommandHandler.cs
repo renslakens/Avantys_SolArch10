@@ -9,11 +9,12 @@ namespace ExamManagement.CommandHandlers
 {
     public class ScheduleExamCommandHandler : IScheduleExamCommandHandler
     {
-        public ExamConnector ExamConnector = new ExamConnector();
+        public ExamConnector ExamConnector = new();
 
         public Task<Exam> handleCommandAsync(ScheduleExam command)
         {
-            Console.WriteLine("Handling ScheduleExam command" + command);
+            Console.WriteLine("Handling ScheduleExam command with messageID: " + command.MessageId);
+            Console.WriteLine("Scheduling exam for student " + command.studentId + " on " + command.scheduledDate);
             Exam exam = new Exam(command.examId);
 
             exam.Schedule(command.studentId, command.scheduledDate, command.module);

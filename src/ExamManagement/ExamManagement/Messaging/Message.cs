@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 namespace ExamManagement.Messaging
 {
-    public class Message
-   {
+    public class Message {
     public readonly Guid MessageId;
     public readonly string MessageType;
 

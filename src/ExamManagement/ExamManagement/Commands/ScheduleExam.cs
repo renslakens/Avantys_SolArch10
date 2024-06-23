@@ -14,9 +14,9 @@ namespace ExamManagement.Commands
         public DateTime scheduledDate;
         public Module module;
 
-        public ScheduleExam() : base(Guid.NewGuid())
-        {
-        }
+        // public ScheduleExam() : base(Guid.NewGuid())
+        // {
+        // }
 
         public ScheduleExam(Guid messageId, string examId, string studentId, DateTime scheduledDate, Module module) : base(messageId)
         {

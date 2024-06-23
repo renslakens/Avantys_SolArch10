@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/rens/dev/Avantys_SolArch10/src/ScheduleManagement/ScheduleManagement/ScheduleManagement.csproj": {}
+    "C:\\dev\\Avantys_SolArch10\\src\\ScheduleManagement\\ScheduleManagement\\ScheduleManagement.csproj": {}
   },
   "projects": {
-    "/Users/rens/dev/Avantys_SolArch10/src/ScheduleManagement/ScheduleManagement/ScheduleManagement.csproj": {
+    "C:\\dev\\Avantys_SolArch10\\src\\ScheduleManagement\\ScheduleManagement\\ScheduleManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/rens/dev/Avantys_SolArch10/src/ScheduleManagement/ScheduleManagement/ScheduleManagement.csproj",
+        "projectUniqueName": "C:\\dev\\Avantys_SolArch10\\src\\ScheduleManagement\\ScheduleManagement\\ScheduleManagement.csproj",
         "projectName": "ScheduleManagement",
-        "projectPath": "/Users/rens/dev/Avantys_SolArch10/src/ScheduleManagement/ScheduleManagement/ScheduleManagement.csproj",
-        "packagesPath": "/Users/rens/.nuget/packages/",
-        "outputPath": "/Users/rens/dev/Avantys_SolArch10/src/ScheduleManagement/ScheduleManagement/obj/",
+        "projectPath": "C:\\dev\\Avantys_SolArch10\\src\\ScheduleManagement\\ScheduleManagement\\ScheduleManagement.csproj",
+        "packagesPath": "C:\\Users\\rensl\\.nuget\\packages\\",
+        "outputPath": "C:\\dev\\Avantys_SolArch10\\src\\ScheduleManagement\\ScheduleManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/rens/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\rensl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
