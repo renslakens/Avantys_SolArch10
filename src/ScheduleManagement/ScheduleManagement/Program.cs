@@ -1,8 +1,11 @@
 using ScheduleManagement;
+using ScheduleManagement.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.Configure<ScheduleManagementDatabaseSettings>(
+    builder.Configuration.GetSection("ScheduleManagementDatabase"));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
