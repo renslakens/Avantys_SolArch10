@@ -25,7 +25,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<ExamConnector>();
-// builder.Services.AddHostedService<ExamReceiverService>();
+
 
 var app = builder.Build();
 

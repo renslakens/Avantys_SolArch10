@@ -72,6 +72,26 @@ services:
       - rabbitmq
       - mongodb
 
+  ExamEventHandler:
+    image: mcr.microsoft.com/dotnet/aspnet:7.0
+    container_name: examEventHandler_container
+    build:
+      context: ./ExamEventHandler/ExamEventHandler
+      dockerfile: Dockerfile
+      args:
+        PROJECT_DIR: ./ExamEventHandler/ExamEventHandler/Dockerfile
+    environment:
+      - RABBIT_ADDRESS=${RABBIT_ADDRESS}
+    ports:
+      - "8094:80"  # Adjust port as needed
+      - "8095:81"
+
+    networks:
+      - project_network
+    depends_on:
+      - rabbitmq
+      - mongodb
+      
 volumes:
   mongo-data:
     driver: local
