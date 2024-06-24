@@ -30,28 +30,27 @@ services:
     volumes:
       - mongo-data:/data/db
 
-  PaymentManager:
-    image: mcr.microsoft.com/dotnet/aspnet:8.0
-    container_name: payment_container
-    build:
-      context: ./PaymentManagement/PaymentManagement
-      dockerfile: Dockerfile
-      args:
-        PROJECT_DIR: ./PaymentManagement/PaymentManagement/Dockerfile
-    environment:
-      - RABBIT_ADDRESS=${RABBIT_ADDRESS}
-    ports:
-      - "8090:8080"  # Adjust port as needed
-      - "8091:8081"
+  # PaymentManager:
+  #   image: mcr.microsoft.com/dotnet/aspnet:8.0
+  #   container_name: payment_container
+  #   build:
+  #     context: ./PaymentManagement/PaymentManagement
+  #     dockerfile: Dockerfile
+  #     args:
+  #       PROJECT_DIR: ./PaymentManagement/PaymentManagement/Dockerfile
+  #   environment:
+  #     - RABBIT_ADDRESS=${RABBIT_ADDRESS}
+  #   ports:
+  #     - "8090:8080"  # Adjust port as needed
+  #     - "8091:8081"
 
-    networks:
-      - project_network
-    depends_on:
-      - rabbitmq
-      - mongodb
+  #   networks:
+  #     - project_network
+  #   depends_on:
+  #     - rabbitmq
+  #     - mongodb
 
-  ExamManager:
-    image: mcr.microsoft.com/dotnet/aspnet:7.0
+  exammanager:
     container_name: exam_container
     build:
       context: ./ExamManagement/ExamManagement
@@ -70,26 +69,25 @@ services:
       - rabbitmq
       - mongodb
 
-  ScheduleManager:
-    image: mcr.microsoft.com/dotnet/aspnet:8.0
-    container_name: schedule_container
+  exameventhandler:
+    container_name: exameventhandler_container
     build:
-      context: ./ScheduleManagement/ScheduleManagement
+      context: ./ExamEventHandler/ExamEventHandler
       dockerfile: Dockerfile
       args:
-        PROJECT_DIR: ./ScheduleManagement/ScheduleManagement/Dockerfile
+        PROJECT_DIR: ./ExamEventHandler/ExamEventHandler/Dockerfile
     environment:
       - RABBIT_ADDRESS=${RABBIT_ADDRESS}
     ports:
-      - "8094:8080"  # Adjust port as needed
-      - "8095:8081"
+      - "8094:80"  # Adjust port as needed
+      - "8095:81"
 
     networks:
       - project_network
     depends_on:
       - rabbitmq
       - mongodb
-
+      
 volumes:
   mongo-data:
     driver: local
