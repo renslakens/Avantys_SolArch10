@@ -1,5 +1,6 @@
 using ScheduleManagement;
 using ScheduleManagement.Models;
+using ScheduleManagement.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<ScheduleConnector>();
+builder.Services.AddSingleton<ScheduleService>();
 builder.Services.AddHostedService<ScheduleReceiverService>();
 
 var app = builder.Build();

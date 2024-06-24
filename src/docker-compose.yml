@@ -1,8 +1,10 @@
 version: '3.8'
 
+
 networks:
   project_network:
     driver: bridge
+
 
 services:
   rabbitmq:
@@ -30,25 +32,24 @@ services:
     volumes:
       - mongo-data:/data/db
 
-  # PaymentManager:
-  #   image: mcr.microsoft.com/dotnet/aspnet:8.0
-  #   container_name: payment_container
-  #   build:
-  #     context: ./PaymentManagement/PaymentManagement
-  #     dockerfile: Dockerfile
-  #     args:
-  #       PROJECT_DIR: ./PaymentManagement/PaymentManagement/Dockerfile
-  #   environment:
-  #     - RABBIT_ADDRESS=${RABBIT_ADDRESS}
-  #   ports:
-  #     - "8090:8080"  # Adjust port as needed
-  #     - "8091:8081"
+  paymentmanager:
+    container_name: payment_container
+    build:
+      context: ./PaymentManagement/PaymentManagement
+      dockerfile: Dockerfile
+      args:
+        PROJECT_DIR: ./PaymentManagement/PaymentManagement/Dockerfile
+    environment:
+      - RABBIT_ADDRESS=${RABBIT_ADDRESS}
+    ports:
+      - "8090:8080"  # Adjust port as needed
+      - "8091:8081"
 
-  #   networks:
-  #     - project_network
-  #   depends_on:
-  #     - rabbitmq
-  #     - mongodb
+    networks:
+      - project_network
+    depends_on:
+      - rabbitmq
+      - mongodb
 
   exammanager:
     container_name: exam_container
@@ -69,25 +70,25 @@ services:
       - rabbitmq
       - mongodb
 
-  exameventhandler:
-    container_name: exameventhandler_container
+  schedulemanager:
+    container_name: schedule_container
     build:
-      context: ./ExamEventHandler/ExamEventHandler
+      context: ./ScheduleManagement/ScheduleManagement
       dockerfile: Dockerfile
       args:
-        PROJECT_DIR: ./ExamEventHandler/ExamEventHandler/Dockerfile
+        PROJECT_DIR: ./ScheduleManagement/ScheduleManagement/Dockerfile
     environment:
       - RABBIT_ADDRESS=${RABBIT_ADDRESS}
     ports:
-      - "8094:80"  # Adjust port as needed
-      - "8095:81"
+      - "8096:8080"  # Adjust port as needed
+      - "8097:8081"
 
     networks:
       - project_network
     depends_on:
       - rabbitmq
       - mongodb
-      
+
 volumes:
   mongo-data:
     driver: local
