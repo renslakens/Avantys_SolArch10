@@ -21,10 +21,11 @@ namespace ExamManagement
             var connection = factory.CreateConnection("Rabbit Exam Receiver");
             var channel = connection.CreateModel();
 
-            channel.ExchangeDeclare(_exchangeName, ExchangeType.Direct);
+            channel.ExchangeDeclare(_exchangeName, ExchangeType.Fanout);
             channel.QueueDeclare(_queueName, false, false, false, null);
             channel.QueueBind(_queueName, _exchangeName, _routingKey, null);
             channel.BasicQos(0, 1, false);
+
 
             var consumer = new EventingBasicConsumer(channel);
             consumer.Received += (sender, eventArgs) =>

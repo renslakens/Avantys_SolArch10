@@ -27,6 +27,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<ExamConnector>();
 
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
