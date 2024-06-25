@@ -20,7 +20,7 @@ namespace ExamManagement.Controllers
         private string examRoutingKey = "exam-sol-arch-routing-key";
         private readonly IScheduleExamCommandHandler _scheduleExamCommandHandler;
 
-        public ExamController(ExamConnector examConnector, ExamsService examsService, IScheduleExamCommandHandler scheduleExamCommandHandler)
+        public ExamController(ExamConnector examConnector, ExamsService examsService, ScheduleExamCommandHandler scheduleExamCommandHandler)
         {
             _examsService = examsService;
             _examConnector = examConnector;

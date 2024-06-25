@@ -18,6 +18,7 @@ namespace ExamManagement
 
         public async Task Send<T>(string messageType, T messageObj)
         {
+            Console.WriteLine("YOOOOOO");
             var connection = factory.CreateConnection("Rabbit Exam Sender");
             var channel = connection.CreateModel();
 
@@ -26,7 +27,10 @@ namespace ExamManagement
             channel.QueueBind(_queueName, _exchangeName, _routingKey, null);
 
             Console.WriteLine($"Sending message");
+            Console.WriteLine("Message Type: " + messageType);
+            Console.WriteLine("Message: " + messageObj.ToString());
             string message = JsonSerializer.Serialize(messageObj);
+            Console.WriteLine($"Sending message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
             byte[] body = Encoding.UTF8.GetBytes(message);
 
             IBasicProperties properties = channel.CreateBasicProperties();
@@ -36,32 +40,6 @@ namespace ExamManagement
 
             channel.Close();
             connection.Close();
-        }
-
-        public void Receive<T>()
-        {
-            var connection = factory.CreateConnection("Rabbit Exam Receiver");
-            var channel = connection.CreateModel();
-
-            channel.ExchangeDeclare(_exchangeName, ExchangeType.Direct);
-            channel.QueueDeclare(_queueName, false, false, false, null);
-            channel.QueueBind(_queueName, _exchangeName, _routingKey, null);
-            channel.BasicQos(0, 1, false);
-
-            var consumer = new EventingBasicConsumer(channel);
-            consumer.Received += (sender, eventArgs) =>
-            {
-                string message = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
-
-                Console.WriteLine($"Received message");
-                T messageObj = JsonSerializer.Deserialize<T>(message);
-                Console.WriteLine($"Received message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
-
-                channel.BasicAck(eventArgs.DeliveryTag, false);
-            };
-
-            channel.BasicConsume(_queueName, false, consumer);
-            while (true) { }
         }
     }
 }
