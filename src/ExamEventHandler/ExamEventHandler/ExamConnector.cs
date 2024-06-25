@@ -6,6 +6,7 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
+using ExamManagement.Repositories;
 
 namespace ExamManagement
 {
@@ -15,6 +16,15 @@ namespace ExamManagement
         private const string _exchangeName = "SolArchExchange";
         private const string _routingKey = "sol-arch-routing-key";
         private const string _queueName = "ExamQueue";
+        private EventStoreRepository _eventStoreRepository;
+        private ReadStoreRepository _readStoreRepository;
+        
+        public ExamConnector(EventStoreRepository eventStoreRepository, ReadStoreRepository readStoreRepository)
+        {
+            _eventStoreRepository = eventStoreRepository;
+            _readStoreRepository = readStoreRepository;
+            
+        }
 
         public void Receive<T>()
         {
@@ -35,7 +45,20 @@ namespace ExamManagement
                 Console.WriteLine($"Received message");
                 T messageObj = JsonSerializer.Deserialize<T>(message);
                 Console.WriteLine($"Received message: {JsonSerializer.Serialize(messageObj, new JsonSerializerOptions { WriteIndented = true })}");
+                string messageType = "MessageType";
+               
+                if (eventArgs.BasicProperties.Headers != null) {
+                    foreach (var header in eventArgs.BasicProperties.Headers) {
+                        if (header.Key == "MessageType") {
+                            messageType = Encoding.UTF8.GetString((byte[])header.Value);
+                        }
+                    }
+                }
+                Console.WriteLine("Messagetype" + messageType);
 
+                _eventStoreRepository.HandleMessageAsync(messageType, message);
+                _readStoreRepository.HandleMessageAsync(messageType, message);
+                
                 channel.BasicAck(eventArgs.DeliveryTag, false);
             };
 
