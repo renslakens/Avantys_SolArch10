@@ -45,8 +45,8 @@ namespace ExamManagement.Services
                             Builders<Student>.Filter.Eq(p => p.FirstName, record.FirstName),
                             Builders<Student>.Filter.Eq(p => p.LastName, record.LastName),
                             Builders<Student>.Filter.Eq(p => p.PhoneNumber, record.PhoneNumber),
-                            Builders<Student>.Filter.Eq(p => p.Address, record.Address)
-                        );
+                            Builders<Student>.Filter.Eq(p => p.Address, record.Address),
+                            Builders<Student>.Filter.Eq(p => p.Exams, record.Exams));
 
                         var existingStudent = await _StudentsCollection.Find(filter).FirstOrDefaultAsync();
 
@@ -59,7 +59,8 @@ namespace ExamManagement.Services
                                 FirstName = record.FirstName,
                                 LastName = record.LastName,
                                 PhoneNumber = record.PhoneNumber,
-                                Address = record.Address
+                                Address = record.Address,
+                                Exams = record.Exams
                             };
                             Students.Add(Student);
                         }
@@ -108,6 +109,8 @@ namespace ExamManagement.Services
         public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
+
+        public List<Exam> Exams = new();
     }
 
 }
