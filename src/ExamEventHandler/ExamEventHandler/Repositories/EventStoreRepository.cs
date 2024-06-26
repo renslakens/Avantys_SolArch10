@@ -56,7 +56,6 @@ namespace ExamManagement.Repositories
         {
             try
             {
-                examScheduled.EventDate = DateTime.UtcNow;
 
                 // Ensure ScheduledDate is in UTC
                 examScheduled.ScheduledDate = examScheduled.ScheduledDate.ToUniversalTime();
@@ -75,6 +74,33 @@ namespace ExamManagement.Repositories
                 return false;
             }
         }
+
+        public async Task<bool> HandleConductedExamAsync(ExamConducted examConducted) {
+            try {
+
+                // Ensure ConductedDate is in UTC
+                examConducted.conductedDate = examConducted.conductedDate.ToUniversalTime();
+
+                DTO dto = EventDTOConverter.ToDTO(examConducted, "ExamConducted");
+
+                // Insert into MongoDB collection
+                await _eventExamCollection.InsertOneAsync(dto);
+
+                Console.WriteLine($"Inserted ExamConducted event with Id: {examConducted.examId}");
+                return true;
+            } catch (Exception e) {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+
+        public async Task<bool> HandleGradedExamAsync(ExamGraded examGraded) {
+            try { 
+                
+            }
+        }
+
+        
 
     }
 }

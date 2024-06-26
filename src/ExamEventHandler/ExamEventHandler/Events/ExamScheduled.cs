@@ -25,8 +25,6 @@ namespace ExamManagement.Events
 
         public Proctor Proctor { get; set; }
 
-        [BsonRepresentation(BsonType.DateTime)]
-        public DateTime EventDate { get; set; }
 
         public ExamScheduled() : base(Guid.NewGuid())
         {
