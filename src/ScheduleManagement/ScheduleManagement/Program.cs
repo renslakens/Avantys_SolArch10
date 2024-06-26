@@ -15,7 +15,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<ScheduleConnector>();
 builder.Services.AddSingleton<ScheduleService>();
-builder.Services.AddHostedService<ScheduleReceiverService>();
+builder.Services.AddSingleton<LessonService>();
+builder.Services.AddSingleton<ClassService>();
 
 var app = builder.Build();
 

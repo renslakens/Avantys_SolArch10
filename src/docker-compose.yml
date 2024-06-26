@@ -107,6 +107,25 @@ services:
     depends_on:
       - rabbitmq
       - mongodb
+      
+  scheduleeventhandler:
+    container_name: scheduleeventhandler_container
+    build:
+      context: ./ScheduleEventHandler/ScheduleEventHandler
+      dockerfile: Dockerfile
+      args:
+        PROJECT_DIR: ./ScheduleEventHandler/ScheduleEventHandler/Dockerfile
+    environment:
+      - RABBIT_ADDRESS=${RABBIT_ADDRESS}
+    ports:
+      - "8098:8080"  # Adjust port as needed
+      - "8099:8081"
+
+    networks:
+      - project_network
+    depends_on:
+      - rabbitmq
+      - mongodb
 
 volumes:
   mongo-data:

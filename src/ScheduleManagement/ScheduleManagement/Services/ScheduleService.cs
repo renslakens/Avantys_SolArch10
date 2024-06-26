@@ -19,7 +19,7 @@ public class ScheduleService {
     }
     
     public async Task<Schedule?> GetAsync(string id) {
-        return await _schedulesCollection.Find<Schedule>(schedule => schedule.Id == id).FirstOrDefaultAsync();
+        return await _schedulesCollection.Find<Schedule>(schedule => schedule.Id.ToString() == id).FirstOrDefaultAsync();
     }
     
     public async Task<Schedule> CreateAsync(Schedule newSchedule) {
@@ -28,10 +28,10 @@ public class ScheduleService {
     }
     
     public async Task UpdateAsync(string id, Schedule updatedSchedule) {
-        await _schedulesCollection.ReplaceOneAsync(schedule => schedule.Id == id, updatedSchedule);
+        await _schedulesCollection.ReplaceOneAsync(schedule => schedule.Id.ToString() == id, updatedSchedule);
     }
     
     public async Task DeleteAsync(string id) {
-        await _schedulesCollection.DeleteOneAsync(schedule => schedule.Id == id);
+        await _schedulesCollection.DeleteOneAsync(schedule => schedule.Id.ToString() == id);
     }
 }
