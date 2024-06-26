@@ -6,6 +6,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using ExamManagement.Models;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace ExamManagement.Services
@@ -53,6 +54,7 @@ namespace ExamManagement.Services
                         {
                             var Student = new Student
                             {
+                                Id = ObjectId.GenerateNewId().ToString(),
                                 CompanyName = record.CompanyName,
                                 FirstName = record.FirstName,
                                 LastName = record.LastName,

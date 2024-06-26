@@ -1,3 +1,4 @@
+using ExamManagement.Models;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
@@ -21,6 +22,8 @@ namespace ExamManagement.Events
         public DateTime ScheduledDate { get; set; }
 
         public Module Module { get; set; }
+
+        public Proctor Proctor { get; set; }
 
         public string CommandType { get; set; }
         [BsonRepresentation(BsonType.DateTime)]
