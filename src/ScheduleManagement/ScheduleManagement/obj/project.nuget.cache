@@ -3,6 +3,7 @@
   "dgSpecHash": "uNPWgJz/zGassY88VDetbFxmD4ElHqFTTS/loZNfqZiEpXvHbhJNI3mQRN1zTJ/s5V/WnLQFhuoUvtBjOFefaw==",
   "success": true,
   "projectFilePath": "C:\\dev\\Avantys_SolArch10\\src\\ScheduleManagement\\ScheduleManagement\\ScheduleManagement.csproj",
+  "projectFilePath": "C:\\dev\\Avantys_SolArch10\\src\\ScheduleManagement\\ScheduleManagement\\ScheduleManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rensl\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\rensl\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
