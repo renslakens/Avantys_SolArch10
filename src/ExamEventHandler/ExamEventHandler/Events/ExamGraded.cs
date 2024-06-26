@@ -16,6 +16,9 @@ namespace ExamManagement.Events
         public string MongoId { get; set; }
         public string Id { get; set; }
         public double Grade { get; set; }
+        public string CommandType { get; set; }
+        [BsonRepresentation(BsonType.DateTime)]
+        public DateTime EventDate { get; set; }
 
         public ExamGraded(Guid messageId, string examId, double grade) : base(messageId)
         {

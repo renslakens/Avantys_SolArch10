@@ -17,7 +17,7 @@ namespace ExamManagement.Repositories
 
             _eventExamCollection = database.GetCollection<ExamScheduled>("ExamEvents");
         }
-        
+
         public async Task<bool> HandleMessageAsync(string messageType, string message)
         {
             try
@@ -37,8 +37,21 @@ namespace ExamManagement.Repositories
                         }
 
                         jsonObj.CommandType = messageType;
-             
+
                         await HandleScheduledExamAsync(jsonObj);
+                        return true;
+                    case "examGraded":
+                        var jsonObj2 = JsonSerializer.Deserialize<ExamGraded>(message, new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true // Allows case-insensitive matching
+                        });
+                        if (jsonObj2 == null)
+                        {
+                            Console.WriteLine("Deserialized JSON object is null.");
+                            return false;
+                        }
+
+                        await HandleGradedExamAsync(jsonObj2);
                         return true;
                     default:
                         return false;
@@ -50,7 +63,25 @@ namespace ExamManagement.Repositories
                 return false;
             }
         }
-        
+
+        private async Task HandleGradedExamAsync(ExamGraded gradedExam)
+        {
+            try
+            {
+                gradedExam.EventDate = DateTime.UtcNow;
+
+                // Insert into MongoDB collection
+                await _eventExamCollection.InsertOneAsync(gradedExam);
+
+                Console.WriteLine($"Inserted ExamGraded event with Id: {gradedExam.Id}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+       
+
         public async Task<bool> HandleScheduledExamAsync(ExamScheduled examScheduled)
         {
             try
