@@ -8,7 +8,7 @@ public class ScheduleService {
     private readonly IMongoCollection<Schedule> _schedulesCollection;
     
     public ScheduleService(IOptions<ScheduleManagementDatabaseSettings> settings) {
-        var client = new MongoClient(settings.Value.ConnectionString);
+        var client = new MongoClient(Environment.GetEnvironmentVariable("MONGO_ADDRESS"));
         var database = client.GetDatabase(settings.Value.DatabaseName);
         
         _schedulesCollection = database.GetCollection<Schedule>(settings.Value.Collections.SchedulesCollectionName);

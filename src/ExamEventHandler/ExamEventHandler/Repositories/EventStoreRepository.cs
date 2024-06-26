@@ -14,7 +14,7 @@ namespace ExamManagement.Repositories
 
         public EventStoreRepository()
         {
-            var client = new MongoClient("mongodb://admin:solarch10@172.20.0.1");
+            var client = new MongoClient(Environment.GetEnvironmentVariable("MONGO_ADDRESS"));
             var database = client.GetDatabase("ExamEvent");
 
             _eventExamCollection = database.GetCollection<DTO>("ExamEvents");

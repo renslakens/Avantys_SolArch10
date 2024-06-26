@@ -24,7 +24,7 @@ namespace ExamManagement.Services
 
         public ExamsService(IOptions<ExamManagementDatabaseSettings> examManagementDatabaseSettings, IScheduleExamCommandHandler scheduleExamCommandHandler, IConductExamCommandHandler conductExamCommandHandler, IGradeExamCommandHandler gradeExamCommandHandler, IPublishResultCommandHandler publishResultCommandHandler)
         {
-            var client = new MongoClient(examManagementDatabaseSettings.Value.ConnectionString);
+            var client = new MongoClient(Environment.GetEnvironmentVariable("MONGO_ADDRESS"));
             var database = client.GetDatabase(examManagementDatabaseSettings.Value.DatabaseName);
 
             _examsCollection = database.GetCollection<Models.Exam>(examManagementDatabaseSettings.Value.Collections.ExamsCollectionName);

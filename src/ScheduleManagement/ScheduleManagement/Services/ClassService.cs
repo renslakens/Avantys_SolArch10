@@ -8,7 +8,7 @@ public class ClassService {
     private readonly IMongoCollection<Class> _classesCollection;
     
     public ClassService(IOptions<ScheduleManagementDatabaseSettings> settings) {
-        var client = new MongoClient(settings.Value.ConnectionString);
+        var client = new MongoClient(Environment.GetEnvironmentVariable("MONGO_ADDRESS"));
         var database = client.GetDatabase(settings.Value.DatabaseName);
         
         _classesCollection = database.GetCollection<Class>(settings.Value.Collections.ClassesCollectionName);

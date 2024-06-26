@@ -13,7 +13,7 @@ namespace PaymentManagement.Services {
         public PaymentService(IOptions<PaymentManagementDatabaseSettings> paymentManagementDatabaseSettings, PaymentConnector paymentConnector) {
             _paymentConnector = paymentConnector;
 
-            var client = new MongoClient(paymentManagementDatabaseSettings.Value.ConnectionString);
+            var client = new MongoClient(Environment.GetEnvironmentVariable("MONGO_ADDRESS"));
             var database = client.GetDatabase(paymentManagementDatabaseSettings.Value.DatabaseName);
 
             _paymentsCollection = database.GetCollection<Payment>(paymentManagementDatabaseSettings.Value.Collections.PaymentsCollectionName);

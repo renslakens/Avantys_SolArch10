@@ -11,7 +11,7 @@ namespace PaymentManagement.Services
 
         public PermissionService(IOptions<PaymentManagementDatabaseSettings> paymentManagementDatabaseSettings)
         {
-            var client = new MongoClient(paymentManagementDatabaseSettings.Value.ConnectionString);
+            var client = new MongoClient(Environment.GetEnvironmentVariable("MONGO_ADDRESS"));
             var database = client.GetDatabase(paymentManagementDatabaseSettings.Value.DatabaseName);
 
             _permissionsCollection = database.GetCollection<Permission>(paymentManagementDatabaseSettings.Value.Collections.PermissionsCollectionName);

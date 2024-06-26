@@ -18,7 +18,7 @@ namespace ExamManagement.Services
 
         public StudentsService(IOptions<ExamManagementDatabaseSettings> examManagementDatabaseSettings)
         {
-            var client = new MongoClient(examManagementDatabaseSettings.Value.ConnectionString);
+            var client = new MongoClient(Environment.GetEnvironmentVariable("MONGO_ADDRESS"));
             var database = client.GetDatabase(examManagementDatabaseSettings.Value.DatabaseName);
 
             _StudentsCollection = database.GetCollection<Student>(examManagementDatabaseSettings.Value.Collections.StudentsCollectionName);

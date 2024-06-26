@@ -8,7 +8,7 @@ public class LessonService {
     private readonly IMongoCollection<Lesson> _lessonsCollection;
     
     public LessonService(IOptions<ScheduleManagementDatabaseSettings> settings) {
-        var client = new MongoClient(settings.Value.ConnectionString);
+        var client = new MongoClient(Environment.GetEnvironmentVariable("MONGO_ADDRESS"));
         var database = client.GetDatabase(settings.Value.DatabaseName);
         
         _lessonsCollection = database.GetCollection<Lesson>(settings.Value.Collections.LessonsCollectionName);
