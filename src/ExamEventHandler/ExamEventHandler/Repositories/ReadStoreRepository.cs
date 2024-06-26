@@ -12,7 +12,7 @@ public class ReadStoreRepository
 
     public ReadStoreRepository()
     {
-        var client = new MongoClient("mongodb://admin:solarch10@172.19.0.1");
+        var client = new MongoClient("mongodb://admin:solarch10@172.20.0.1");
         var database = client.GetDatabase("Exam");
 
         _eventExamCollection = database.GetCollection<Exam>("Exams");

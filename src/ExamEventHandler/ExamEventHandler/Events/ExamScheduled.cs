@@ -25,7 +25,6 @@ namespace ExamManagement.Events
 
         public Proctor Proctor { get; set; }
 
-        public string CommandType { get; set; }
         [BsonRepresentation(BsonType.DateTime)]
         public DateTime EventDate { get; set; }
 
@@ -40,6 +39,7 @@ namespace ExamManagement.Events
             this.ScheduledDate = scheduledDate;
             this.Module = module;
         }
+
     }
 
     public class Module

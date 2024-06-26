@@ -3,19 +3,21 @@ using System;
 using System.Threading.Tasks;
 using System.Text.Json;
 using ExamManagement.Events;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 
 namespace ExamManagement.Repositories
 {
     public class EventStoreRepository
     {
-        private readonly IMongoCollection<ExamScheduled> _eventExamCollection;
+        private readonly IMongoCollection<DTO> _eventExamCollection;
 
         public EventStoreRepository()
         {
-            var client = new MongoClient("mongodb://admin:solarch10@172.19.0.1");
+            var client = new MongoClient("mongodb://admin:solarch10@172.20.0.1");
             var database = client.GetDatabase("ExamEvent");
 
-            _eventExamCollection = database.GetCollection<ExamScheduled>("ExamEvents");
+            _eventExamCollection = database.GetCollection<DTO>("ExamEvents");
         }
         
         public async Task<bool> HandleMessageAsync(string messageType, string message)
@@ -36,7 +38,6 @@ namespace ExamManagement.Repositories
                             return false;
                         }
 
-                        jsonObj.CommandType = messageType;
              
                         await HandleScheduledExamAsync(jsonObj);
                         return true;
@@ -60,8 +61,10 @@ namespace ExamManagement.Repositories
                 // Ensure ScheduledDate is in UTC
                 examScheduled.ScheduledDate = examScheduled.ScheduledDate.ToUniversalTime();
 
+                DTO dto = EventDTOConverter.ToDTO(examScheduled, "ExamScheduled");
+
                 // Insert into MongoDB collection
-                await _eventExamCollection.InsertOneAsync(examScheduled);
+                await _eventExamCollection.InsertOneAsync(dto);
 
                 Console.WriteLine($"Inserted ExamScheduled event with Id: {examScheduled.Id}");
                 return true;
