@@ -19,7 +19,7 @@ namespace ExamManagement.Commands
         }
 
         
-        public ScheduleExam(Guid messageId, string examId, string studentId, DateTime scheduledDate, Module module, Proctor Procotor) : base(messageId)
+        public ScheduleExam(Guid messageId, string? examId, string studentId, DateTime scheduledDate, Module module, Proctor Procotor) : base(messageId)
         {
             this.Id = examId;
             this.studentId = studentId;

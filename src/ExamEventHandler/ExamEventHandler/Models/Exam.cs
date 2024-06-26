@@ -17,11 +17,11 @@ namespace ExamManagement.Models
 
         public string StudentId { get; set; }
         
-        public Module module { get; set; }
+        public Module Module { get; set; }
 
-        public Proctor proctor { get; set;}
+        public Proctor Proctor { get; set;}
 
-        public double? grade { get; set; }
+        public double? Grade { get; set; }
 
     }
 }

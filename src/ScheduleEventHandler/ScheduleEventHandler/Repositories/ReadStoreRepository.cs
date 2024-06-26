@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using ExamManagement.Models;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using ScheduleManagement.Models;
 
@@ -135,7 +136,7 @@ public class ReadStoreRepository {
                             
                             await HandleExamScheduledAsync(jsonObj7);
                             return true;
-                        case "NewStudents":
+                        case "newStudents":
                             var jsonObj8 = JsonSerializer.Deserialize<List<Student>>(message, new JsonSerializerOptions
                             {
                                 PropertyNameCaseInsensitive = true // Allows case-insensitive matching
@@ -148,7 +149,7 @@ public class ReadStoreRepository {
                             }
                             
                             foreach (var student in jsonObj8)
-                            {
+                            {   
                                 await HandleStudentCreatedAsync(student);
                             }
                             return true;
@@ -250,7 +251,7 @@ public class ReadStoreRepository {
             
             public async Task<bool> HandleExamScheduledAsync(Exam exam) {
                 try {
-                    await _studentCollection.UpdateOneAsync(x => x.Id == exam.StudentId, Builders<Student>.Update.Push(x => x.Exams, exam));
+                    await _studentCollection.UpdateOneAsync(x => x.Id.ToString() == exam.StudentId, Builders<Student>.Update.Push(x => x.Exams, exam));
                     Console.WriteLine($"Updated Student with Id: {exam.StudentId} with Exam Id: {exam.Id}");
                     return true;
                 }
