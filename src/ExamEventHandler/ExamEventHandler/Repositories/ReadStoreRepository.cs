@@ -10,10 +10,10 @@ public class ReadStoreRepository {
 
     public ReadStoreRepository()
     {
-        var client = new MongoClient("mongodb://admin:solarch10@172.20.0.1");
+        var client = new MongoClient("mongodb://admin:solarch10@172.19.0.1");
         var database = client.GetDatabase("Exam");
 
-        _eventExamCollection = database.GetCollection<Exam>("Exam");
+        _eventExamCollection = database.GetCollection<Exam>("Exams");
     }
     
             public async Task<bool> HandleMessageAsync(string messageType, string message)
@@ -22,7 +22,7 @@ public class ReadStoreRepository {
                 {
                     switch (messageType)
                     {
-                        case "ScheduleExam":
+                        case "examScheduled":
                             // Deserialize the JSON message into ExamScheduled object
                             var jsonObj = JsonSerializer.Deserialize<Exam>(message, new JsonSerializerOptions
                             {

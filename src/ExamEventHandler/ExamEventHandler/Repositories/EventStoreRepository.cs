@@ -12,7 +12,7 @@ namespace ExamManagement.Repositories
 
         public EventStoreRepository()
         {
-            var client = new MongoClient("mongodb://admin:solarch10@172.20.0.1");
+            var client = new MongoClient("mongodb://admin:solarch10@172.19.0.1");
             var database = client.GetDatabase("ExamEvent");
 
             _eventExamCollection = database.GetCollection<ExamScheduled>("ExamEvents");
@@ -24,7 +24,7 @@ namespace ExamManagement.Repositories
             {
                 switch (messageType)
                 {
-                    case "ScheduleExam":
+                    case "examScheduled":
                         // Deserialize the JSON message into ExamScheduled object
                         var jsonObj = JsonSerializer.Deserialize<ExamScheduled>(message, new JsonSerializerOptions
                         {

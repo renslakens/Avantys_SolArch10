@@ -11,19 +11,20 @@ namespace ExamManagement.CommandHandlers
     {
         public ExamConnector ExamConnector = new ExamConnector();
 
-        public Task<Exam> handleCommandAsync(ScheduleExam command)
+        public Task<ScheduleExam> handleCommandAsync(ScheduleExam command)
         {
-            Console.WriteLine("Handling ScheduleExam command" + command);
-            Console.WriteLine("Handling ScheduleExam command" + command.studentId + " " + command.scheduledDate + " " + command.module.name);
-            Exam exam = new Exam(command.examId);
+            // Exam exam = new Exam(command.examId);
 
-            exam.Schedule(command.studentId, command.scheduledDate, command.module);
+            // exam.Schedule(command.studentId, command.scheduledDate, command.module);
 
-            Console.WriteLine("Exam scheduled" + exam.Id + " " + exam.StudentId + " " + exam.scheduledDate + " " + exam.module.name);
+            // Console.WriteLine("Exam scheduled" + exam.Id + " " + exam.StudentId + " " + exam.scheduledDate + " " + exam.module.name);
 
-            ExamConnector.Send<Exam>("ScheduleExam" ,exam);
+            // ExamConnector.Send<Exam>("ScheduleExam" ,exam);
+            Console.WriteLine("IDDDD " + command.Id);
+            ExamConnector.Send<ScheduleExam>("examScheduled", command);
+            return Task.FromResult(command);
 
-            return Task.FromResult(exam);
+            // return Task.FromResult(exam);
         }
     }
 }

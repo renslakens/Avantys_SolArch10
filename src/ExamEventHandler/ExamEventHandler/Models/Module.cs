@@ -9,6 +9,7 @@ namespace ExamManagement.Models
 {
     public class Module
     {
+        [BsonId]
         [BsonRepresentation(BsonType.String)]
         public string Id { get; set; }
 

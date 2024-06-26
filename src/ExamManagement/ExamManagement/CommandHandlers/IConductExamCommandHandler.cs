@@ -9,6 +9,6 @@ namespace ExamManagement.CommandHandlers
 {
     public interface IConductExamCommandHandler
     {
-        Task<Exam> handleCommandAsync(ConductExam command);
+        Task<ConductExam> handleCommandAsync(ConductExam command);
     }
 }

@@ -8,15 +8,14 @@ namespace ExamManagement.Commands
 {
     public class ConductExam : Command
     {
-        public readonly string examId;
-        public readonly string StudentId;
-        public readonly DateTime ConductedDate;
+        public string Id { get; set; }
 
-        public ConductExam(Guid messageId, string examId, string studentId, DateTime conductedDate) : base(messageId)
+        public ConductExam() : base(Guid.NewGuid())
         {
-            this.examId = examId;
-            this.StudentId = studentId;
-            this.ConductedDate = conductedDate;
-        }   
+        }
+        public ConductExam(Guid messageId, string examId) : base(messageId)
+        {
+            this.Id = examId;
+        }
     }
 }

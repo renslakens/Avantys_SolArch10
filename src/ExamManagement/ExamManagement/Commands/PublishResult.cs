@@ -8,17 +8,16 @@ namespace ExamManagement.Commands
 {
     public class PublishResult : Command
     {
-        public readonly string examId;
-        public readonly string StudentId;
-        public readonly double Grade;
-        public readonly DateTime PublishedDate;
+        public string Id { get; set; }
+        public DateTime PublishedDate = DateTime.Now;
 
-        public PublishResult(Guid messageId, string examId, string studentId, double grade, DateTime publishedDate) : base(messageId)
+        public PublishResult() : base(Guid.NewGuid())
         {
-            this.examId = examId;
-            this.StudentId = studentId;
-            this.Grade = grade;
-            this.PublishedDate = publishedDate;
+        }
+
+        public PublishResult(Guid messageId, string examId) : base(messageId)
+        {
+            this.Id = examId;
         }
     }
 }

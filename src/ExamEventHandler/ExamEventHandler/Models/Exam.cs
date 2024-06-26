@@ -19,6 +19,8 @@ namespace ExamManagement.Models
         
         public Module module { get; set; }
 
+        public Proctor proctor { get; set;}
+
         public double? grade { get; set; }
 
     }

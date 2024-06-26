@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ExamManagement.CommandHandlers;
 using ExamManagement.Commands;
 using ExamManagement.Entities;
+using ExamManagement.Models;
 using ExamManagement.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,26 +15,22 @@ namespace ExamManagement.Controllers
     public class ExamController : ControllerBase
     {
         private readonly ExamsService _examsService;
-        private readonly ExamConnector _examConnector;
         private string examExchange = "ExamSolArchExchange";
         private string examRoutingKey = "exam-sol-arch-routing-key";
-        private readonly IScheduleExamCommandHandler _scheduleExamCommandHandler;
 
-        public ExamController(ExamConnector examConnector, ExamsService examsService, ScheduleExamCommandHandler scheduleExamCommandHandler)
+        public ExamController(ExamsService examsService)
         {
             _examsService = examsService;
-            _examConnector = examConnector;
-            _scheduleExamCommandHandler = scheduleExamCommandHandler ?? throw new ArgumentNullException(nameof(scheduleExamCommandHandler));
         }
 
         [HttpGet]
-        public async Task<List<Exam>> GetExams()
+        public async Task<List<Models.Exam>> GetExams()
         {
             return await _examsService.GetAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Exam>> GetExam(string id)
+        public async Task<ActionResult<Models.Exam>> GetExam(string id)
         {
             var exam = await _examsService.GetAsync(id);
 
@@ -46,27 +42,16 @@ namespace ExamManagement.Controllers
             return exam;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Exam>> CreateExam([FromBody] Exam newExam)
-        {
-            await _examsService.CreateAsync(newExam);
-            return CreatedAtAction("GetExam", new { id = newExam.Id }, newExam);
-        }
-
         [HttpPost("Schedule")]
         public async Task<IActionResult> ScheduleExamAsync([FromBody] ScheduleExam command)
         {
-            Console.WriteLine("HI " + command.MessageId + command.examId + " " + command.studentId + " " + command.scheduledDate + " " + command.module);
             try
             {
-                Exam exam = await _scheduleExamCommandHandler.handleCommandAsync(command);
-
+                var exam = await _examsService.ScheduleExamAsync(command);
                 if (exam == null)
                 {
                     return NotFound();
                 }
-
-                Console.WriteLine("Exam scheduled" + exam);
                 return Ok(exam);
             }
             catch (Exception ex)
@@ -75,38 +60,90 @@ namespace ExamManagement.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateExam(string id, [FromBody] Exam updatedExam)
+        [HttpPost("Conduct")]
+        public async Task<IActionResult> ConductExamAsync([FromBody] ConductExam command)
         {
-            var exam = await _examsService.GetAsync(id);
-            if (exam == null)
+            Console.WriteLine(command);
+            Console.WriteLine("YOOO " + command.Id + " ");
+            try
             {
-                return NotFound();
-            }
+                Console.WriteLine("Conducting exam in controller " + command.Id);
+                var exam = await _examsService.ConductExamAsync(command);
+                if (exam == null)
+                {
+                    return NotFound();
+                }
+                return Ok(exam);
 
-            updatedExam.Id = exam.Id;
-            await _examsService.UpdateAsync(id, updatedExam);
-            return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteExam(string id)
+        [HttpPost("Grade")]
+        public async Task<IActionResult> GradeExamAsync([FromBody] GradeExam command)
         {
-            var exam = await _examsService.GetAsync(id);
-            if (exam == null)
+            try
             {
-                return NotFound();
+                var exam = await _examsService.GradeExamAsync(command);
+                if (exam == null)
+                {
+                    return NotFound();
+                }
+                return Ok(exam);
             }
-
-            await _examsService.DeleteAsync(id);
-            return NoContent();
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // [HttpPost("Send")]
-        // public IActionResult SendExam([FromBody] Object exam)
+        [HttpPost("Publish")]
+        public async Task<IActionResult> PublishExamResultAsync([FromBody] PublishResult command)
+        {
+            try
+            {
+                var exam = await _examsService.PublishExamResultAsync(command);
+                if (exam == null)
+                {
+                    return NotFound();
+                }
+                return Ok(exam);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        // [HttpPut("{id}")]
+        // public async Task<IActionResult> UpdateExam(string id, [FromBody] Exam updatedExam)
         // {
-        //     _examConnector.Send(exam, examExchange, examRoutingKey, "ExamQueue");
-        //     return Ok("Exam sent successfully");
+        //     var exam = await _examsService.GetAsync(id);
+        //     if (exam == null)
+        //     {
+        //         return NotFound();
+        //     }
+
+        //     updatedExam.Id = exam.Id;
+        //     await _examsService.UpdateAsync(id, updatedExam);
+        //     return NoContent();
         // }
+
+        // [HttpDelete("{id}")]
+        // public async Task<IActionResult> DeleteExam(string id)
+        // {
+        //     var exam = await _examsService.GetAsync(id);
+        //     if (exam == null)
+        //     {
+        //         return NotFound();
+        //     }
+
+        //     await _examsService.DeleteAsync(id);
+        //     return NoContent();
+        // }
+
     }
 }

@@ -13,6 +13,7 @@ namespace ExamManagement.Services
     public class StudentsService
     {
         private readonly IMongoCollection<Student> _StudentsCollection;
+        public ExamConnector ExamConnector = new ExamConnector();
 
         public StudentsService(IOptions<ExamManagementDatabaseSettings> examManagementDatabaseSettings)
         {
@@ -64,8 +65,7 @@ namespace ExamManagement.Services
 
                     if (Students.Any())
                     {
-                        await _StudentsCollection.InsertManyAsync(Students);
-                        Console.WriteLine("Data successfully inserted into the MongoDB collection.");
+                        ExamConnector.Send<List<Student>>("newStudents", Students);
                     }
                     else
                     {

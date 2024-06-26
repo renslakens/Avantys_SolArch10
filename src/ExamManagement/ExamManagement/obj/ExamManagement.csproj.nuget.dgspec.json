@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dev\\Avantys_SolArch10\\src\\ExamManagement\\ExamManagement\\ExamManagement.csproj": {}
+    "/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/ExamManagement.csproj": {}
   },
   "projects": {
-    "C:\\dev\\Avantys_SolArch10\\src\\ExamManagement\\ExamManagement\\ExamManagement.csproj": {
+    "/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/ExamManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\Avantys_SolArch10\\src\\ExamManagement\\ExamManagement\\ExamManagement.csproj",
+        "projectUniqueName": "/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/ExamManagement.csproj",
         "projectName": "ExamManagement",
-        "projectPath": "C:\\dev\\Avantys_SolArch10\\src\\ExamManagement\\ExamManagement\\ExamManagement.csproj",
-        "packagesPath": "C:\\Users\\rensl\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\Avantys_SolArch10\\src\\ExamManagement\\ExamManagement\\obj\\",
+        "projectPath": "/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/ExamManagement.csproj",
+        "packagesPath": "/Users/ayrianna/.nuget/packages/",
+        "outputPath": "/Users/ayrianna/Library/CloudStorage/OneDrive-AvansHogeschool/~Jaar 3/~Periode 4/Solution Architecture/Avantys_SolArch10/src/ExamManagement/ExamManagement/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rensl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/ayrianna/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -76,6 +79,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-x64",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -84,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.301/RuntimeIdentifierGraph.json"
         }
       }
     }

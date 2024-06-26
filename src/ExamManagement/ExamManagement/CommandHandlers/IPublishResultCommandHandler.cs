@@ -9,6 +9,6 @@ namespace ExamManagement.CommandHandlers
 {
     public interface IPublishResultCommandHandler
     {
-        Task<Exam> handleCommandAsync (PublishResult command);
+        Task<PublishResult> handleCommandAsync (PublishResult command);
     }
 }

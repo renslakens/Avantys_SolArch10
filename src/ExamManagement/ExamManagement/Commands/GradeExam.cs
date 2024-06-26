@@ -8,14 +8,16 @@ namespace ExamManagement.Commands
 {
     public class GradeExam : Command
     {
-        public readonly string examId;
-        public readonly string StudentId;
-        public readonly double Grade;
+        public string Id { get; set; }
+        public double Grade { get; set; }
 
-        public GradeExam(Guid messageId, string examId, string studentId, double grade) : base(messageId)
+        public GradeExam() : base(Guid.NewGuid())
         {
-            this.examId = examId;
-            this.StudentId = studentId;
+        }
+
+        public GradeExam(Guid messageId, string examId, double grade) : base(messageId)
+        {
+            this.Id = examId;
             this.Grade = grade;
         }
     }

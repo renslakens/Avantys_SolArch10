@@ -9,6 +9,6 @@ namespace ExamManagement.CommandHandlers
 {
     public interface IScheduleExamCommandHandler
     {
-        Task<Exam> handleCommandAsync (ScheduleExam command);
+        Task<ScheduleExam> handleCommandAsync (ScheduleExam command);
     }
 }

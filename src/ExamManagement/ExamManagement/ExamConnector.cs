@@ -18,7 +18,6 @@ namespace ExamManagement
 
         public async Task Send<T>(string messageType, T messageObj)
         {
-            Console.WriteLine("YOOOOOO");
             var connection = factory.CreateConnection("Rabbit Exam Sender");
             var channel = connection.CreateModel();
 

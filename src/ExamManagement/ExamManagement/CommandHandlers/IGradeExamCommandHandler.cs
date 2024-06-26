@@ -9,6 +9,6 @@ namespace ExamManagement.CommandHandlers
 {
     public interface IGradeExamCommandHandler
     {
-        Task<Exam> handleCommandAsync(GradeExam command);
+        Task<GradeExam> handleCommandAsync(GradeExam command);
     }
 }

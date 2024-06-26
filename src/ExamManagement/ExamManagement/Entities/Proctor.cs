@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 
 namespace ExamManagement.Entities
 {
-    public class Module : Entity<string>
+    public class Proctor : Entity<string>
     {
+        
         public string Name { get; set; }
 
         [JsonConstructor]
-        public Module(string id, string name) : base(id)
+        public Proctor(string id, string name) : base(id)
         {
             this.Name = name;
         }
 
-        public Module() : base(Guid.NewGuid().ToString()) // Parameterless constructor for deserialization
+        public Proctor() : base(Guid.NewGuid().ToString()) // Parameterless constructor for deserialization
         {
         }
 
-        public Module(string id) : base(id)
+        public Proctor(string id) : base(id)
         {
         }
     }
