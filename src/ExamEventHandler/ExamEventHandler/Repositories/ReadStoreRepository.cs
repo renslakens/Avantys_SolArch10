@@ -130,8 +130,7 @@ public class ReadStoreRepository
             var update = Builders<Student>.Update.Set("Exams.$.Grade", jsonObj2.Grade);
 
             // Perform the update on the Student collection
-            var updateResult = await _eventStudentCollection.UpdateOneAsync(filter, update);
-
+            await _eventStudentCollection.UpdateOneAsync(filter, update);
             return true;
         }
         catch (Exception e)
