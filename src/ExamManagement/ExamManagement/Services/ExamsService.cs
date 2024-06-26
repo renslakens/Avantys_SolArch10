@@ -80,6 +80,7 @@ namespace ExamManagement.Services
         {
             try
             {
+                Console.WriteLine("Yeeehaw");
                 var exam = await _gradeExamCommandHandler.handleCommandAsync(command);
 
                 Console.WriteLine("Exam graded" + exam);

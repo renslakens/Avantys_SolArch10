@@ -13,6 +13,6 @@ namespace ExamManagement.Models
         [BsonRepresentation(BsonType.String)]
         public string Id { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
     }
 }

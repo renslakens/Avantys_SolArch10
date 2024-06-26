@@ -19,7 +19,7 @@ namespace ExamManagement.Repositories
 
             _eventExamCollection = database.GetCollection<DTO>("ExamEvents");
         }
-        
+
         public async Task<bool> HandleMessageAsync(string messageType, string message)
         {
             try
@@ -41,6 +41,19 @@ namespace ExamManagement.Repositories
              
                         await HandleScheduledExamAsync(jsonObj);
                         return true;
+                    case "examGraded":
+                        var jsonObj2 = JsonSerializer.Deserialize<ExamGraded>(message, new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true // Allows case-insensitive matching
+                        });
+                        if (jsonObj2 == null)
+                        {
+                            Console.WriteLine("Deserialized JSON object is null.");
+                            return false;
+                        }
+
+                        await HandleGradedExamAsync(jsonObj2);
+                        return true;
                     default:
                         return false;
                 }
@@ -51,7 +64,8 @@ namespace ExamManagement.Repositories
                 return false;
             }
         }
-        
+
+
         public async Task<bool> HandleScheduledExamAsync(ExamScheduled examScheduled)
         {
             try
@@ -60,7 +74,7 @@ namespace ExamManagement.Repositories
                 // Ensure ScheduledDate is in UTC
                 examScheduled.ScheduledDate = examScheduled.ScheduledDate.ToUniversalTime();
 
-                DTO dto = EventDTOConverter.ToDTO(examScheduled, "ExamScheduled");
+                DTO dto = EventDTOConverter.ToDTO(examScheduled, "examScheduled");
 
                 // Insert into MongoDB collection
                 await _eventExamCollection.InsertOneAsync(dto);
@@ -79,14 +93,14 @@ namespace ExamManagement.Repositories
             try {
 
                 // Ensure ConductedDate is in UTC
-                examConducted.conductedDate = examConducted.conductedDate.ToUniversalTime();
+                examConducted.ConductedDate = examConducted.ConductedDate.ToUniversalTime();
 
-                DTO dto = EventDTOConverter.ToDTO(examConducted, "ExamConducted");
+                DTO dto = EventDTOConverter.ToDTO(examConducted, "examConducted");
 
                 // Insert into MongoDB collection
                 await _eventExamCollection.InsertOneAsync(dto);
 
-                Console.WriteLine($"Inserted ExamConducted event with Id: {examConducted.examId}");
+                Console.WriteLine($"Inserted ExamConducted event with Id: {examConducted.Id}");
                 return true;
             } catch (Exception e) {
                 Console.WriteLine(e);
@@ -95,12 +109,35 @@ namespace ExamManagement.Repositories
         }
 
         public async Task<bool> HandleGradedExamAsync(ExamGraded examGraded) {
-            try { 
-                
+            try {
+                DTO dto = EventDTOConverter.ToDTO(examGraded, "examGraded");
+
+                await _eventExamCollection.InsertOneAsync(dto);
+
+                Console.WriteLine($"Inserted ExamGraded event with Id: {examGraded.Id}");
+                return true;
+
+
+            } catch (Exception e) {
+
+                Console.WriteLine(e);
+                return false;
             }
         }
 
-        
+        public async Task<bool> HandlePublishedExamAsync(ResultsPublished resultsPublished) {
+            try {
+                DTO dto = EventDTOConverter.ToDTO(resultsPublished, "resultsPublished");
+
+                await _eventExamCollection.InsertOneAsync(dto);
+
+                Console.WriteLine($"Inserted resultsPublished event with Id: {resultsPublished.Id}");
+                return true;
+            } catch (Exception e) {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
 
     }
 }

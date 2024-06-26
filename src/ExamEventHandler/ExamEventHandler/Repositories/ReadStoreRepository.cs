@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using ExamManagement.Events;
 using ExamManagement.Models;
 using MongoDB.Driver;
 
@@ -56,6 +55,19 @@ public class ReadStoreRepository
                         await HandleNewStudentAsync(student);
                     }
                     return true;
+                case "examGraded":
+                    var jsonObj2 = JsonSerializer.Deserialize<Exam>(message, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true // Allows case-insensitive matching
+                    });
+                    if (jsonObj2 == null)
+                    {
+                        Console.WriteLine("Deserialized JSON object is null.");
+                        return false;
+                    }
+
+                    await HandleGradedExamAsync(jsonObj2);
+                    return true;
 
                 default:
                     return false;
@@ -67,6 +79,7 @@ public class ReadStoreRepository
             return false;
         }
     }
+
 
     public async Task<bool> HandleScheduledExamAsync(Exam examScheduled)
     {
@@ -89,16 +102,40 @@ public class ReadStoreRepository
         }
     }
 
+    public async Task<bool> HandleGradedExamAsync(Exam jsonObj2)
+    {
+        try
+        {
+            var examToUpdate = await _eventExamCollection.Find(x => x.Id == jsonObj2.Id).FirstOrDefaultAsync();
+            if (examToUpdate == null)
+            {
+                Console.WriteLine($"Exam with Id: {jsonObj2.Id} not found.");
+                return false;
+            }
+            examToUpdate.Grade = jsonObj2.Grade;
+            Console.WriteLine($"Updating Exam with Id: {jsonObj2.Id} with Grade: {jsonObj2.Grade} which is {examToUpdate}" );
+            await _eventExamCollection.ReplaceOneAsync(x => x.Id == jsonObj2.Id, examToUpdate, new ReplaceOptions { IsUpsert = true });
+            return true;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return false;
+        }
+    }
+
     public async Task<bool> HandleNewStudentAsync(Student student)
     {
-                try {
-                    await _eventStudentCollection.ReplaceOneAsync(x => x.Id == student.Id, student, new ReplaceOptions { IsUpsert = true });
-                    return true;
-                }
-                catch (Exception e) {
-                    Console.WriteLine(e);
-                    throw;
-                }
+        try
+        {
+            await _eventStudentCollection.ReplaceOneAsync(x => x.Id == student.Id, student, new ReplaceOptions { IsUpsert = true });
+            return true;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
 }

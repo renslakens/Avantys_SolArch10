@@ -14,14 +14,14 @@ namespace ExamManagement.Events
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string MongoId { get; set; }
-        public readonly string examId;
-        public readonly string StudentId;
-        public readonly double Grade;
-        public readonly DateTime PublishedDate;
+        public  string Id { get; set; }
+        public  string StudentId { get; set; }
+        public  double Grade { get; set; }
+        public  DateTime PublishedDate { get; set; }
 
         public ResultsPublished(Guid messageId, string examId, string studentId, double grade, DateTime publishedDate) : base(messageId)
         {
-            this.examId = examId;
+            this.Id = examId;
             this.StudentId = studentId;
             this.Grade = grade;
             this.PublishedDate = publishedDate;
