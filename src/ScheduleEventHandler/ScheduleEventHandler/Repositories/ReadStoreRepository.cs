@@ -136,8 +136,8 @@ public class ReadStoreRepository {
                             
                             await HandleExamScheduledAsync(jsonObj7);
                             return true;
-                        case "newStudents":
-                            var jsonObj8 = JsonSerializer.Deserialize<List<Student>>(message, new JsonSerializerOptions
+                        case "examGraded":
+                            var jsonObj8 = JsonSerializer.Deserialize<Exam>(message, new JsonSerializerOptions
                             {
                                 PropertyNameCaseInsensitive = true // Allows case-insensitive matching
                             });
@@ -148,7 +148,21 @@ public class ReadStoreRepository {
                                 return false;
                             }
                             
-                            foreach (var student in jsonObj8)
+                            await HandleExamGradedAsync(jsonObj8);
+                            return true;
+                        case "newStudents":
+                            var jsonObj9 = JsonSerializer.Deserialize<List<Student>>(message, new JsonSerializerOptions
+                            {
+                                PropertyNameCaseInsensitive = true // Allows case-insensitive matching
+                            });
+                            
+                            if (jsonObj9 == null)
+                            {
+                                Console.WriteLine("Deserialized JSON object is null.");
+                                return false;
+                            }
+                            
+                            foreach (var student in jsonObj9)
                             {   
                                 await HandleStudentCreatedAsync(student);
                             }
@@ -256,6 +270,35 @@ public class ReadStoreRepository {
                     return true;
                 }
                 catch (Exception e) {
+                    Console.WriteLine(e);
+                    throw;
+                }
+            }
+            
+            public async Task<bool> HandleExamGradedAsync(Exam exam)
+            {
+                try
+                {
+                    var studentFilter = Builders<Student>.Filter.ElemMatch(s => s.Exams, e => e.Id == exam.Id);
+                    var student = await _studentCollection.Find(studentFilter).FirstOrDefaultAsync();
+        
+                    if (student == null)
+                    {
+                        Console.WriteLine($"No student found with Exam Id: {exam.Id}");
+                        return false;
+                    }
+
+                    var updateFilter = Builders<Student>.Filter.And(
+                        Builders<Student>.Filter.Eq(s => s.Id, student.Id),
+                        Builders<Student>.Filter.ElemMatch(s => s.Exams, e => e.Id == exam.Id)
+                    );
+
+                    var update = Builders<Student>.Update.Set("Exams.$.Grade", exam.Grade);
+                    await _studentCollection.UpdateOneAsync(updateFilter, update);
+                    return true;
+                }
+                catch (Exception e)
+                {
                     Console.WriteLine(e);
                     throw;
                 }
