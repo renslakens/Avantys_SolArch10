@@ -91,7 +91,7 @@ public class ReadStoreRepository
 
             // Insert into MongoDB collection and replace if already exists
             await _eventExamCollection.ReplaceOneAsync(x => x.Id == examScheduled.Id, examScheduled, new ReplaceOptions { IsUpsert = true });
-
+            await _eventStudentCollection.UpdateOneAsync(x => x.Id == examScheduled.StudentId, Builders<Student>.Update.Push(x => x.Exams, examScheduled));
             Console.WriteLine($"Inserted ExamScheduled with Id: {examScheduled.Id}");
             return true;
         }
@@ -106,20 +106,37 @@ public class ReadStoreRepository
     {
         try
         {
+            // Find the exam document to update
             var examToUpdate = await _eventExamCollection.Find(x => x.Id == jsonObj2.Id).FirstOrDefaultAsync();
             if (examToUpdate == null)
             {
                 Console.WriteLine($"Exam with Id: {jsonObj2.Id} not found.");
                 return false;
             }
+
+            // Update the Grade in the exam document
             examToUpdate.Grade = jsonObj2.Grade;
-            Console.WriteLine($"Updating Exam with Id: {jsonObj2.Id} with Grade: {jsonObj2.Grade} which is {examToUpdate}" );
-            await _eventExamCollection.ReplaceOneAsync(x => x.Id == jsonObj2.Id, examToUpdate, new ReplaceOptions { IsUpsert = true });
+            Console.WriteLine($"Updating Exam with Id: {jsonObj2.Id} with Grade: {jsonObj2.Grade}");
+
+            // Replace the updated exam document in the collection
+            await _eventExamCollection.ReplaceOneAsync(x => x.Id == jsonObj2.Id, examToUpdate);
+
+            // Update the Grade in the corresponding Student document's Exams array
+            var filter = Builders<Student>.Filter.And(
+                Builders<Student>.Filter.Eq(x => x.Id, examToUpdate.StudentId),
+                Builders<Student>.Filter.ElemMatch(x => x.Exams, Builders<Exam>.Filter.Eq(e => e.Id, jsonObj2.Id))
+            );
+
+            var update = Builders<Student>.Update.Set("Exams.$.Grade", jsonObj2.Grade);
+
+            // Perform the update on the Student collection
+            var updateResult = await _eventStudentCollection.UpdateOneAsync(filter, update);
+
             return true;
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Console.WriteLine($"An error occurred: {e}");
             return false;
         }
     }

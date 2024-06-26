@@ -8,23 +8,21 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ExamManagement.Events
 {
+    [BsonIgnoreExtraElements]
     public class ResultsPublished : Event
     {
         [BsonIgnoreIfDefault]
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string MongoId { get; set; }
-        public  string Id { get; set; }
-        public  string StudentId { get; set; }
-        public  double Grade { get; set; }
-        public  DateTime PublishedDate { get; set; }
+        public string Id { get; set; }
+        public DateTime PublishedDate { get; set; }
 
-        public ResultsPublished(Guid messageId, string examId, string studentId, double grade, DateTime publishedDate) : base(messageId)
+        public ResultsPublished() : base(ObjectId.GenerateNewId()) { }
+        public ResultsPublished(ObjectId messageId, string examId, DateTime publishedDate) : base(messageId)
         {
             this.Id = examId;
-            this.StudentId = studentId;
-            this.Grade = grade;
-            this.PublishedDate = publishedDate;
+            this.PublishedDate = DateTime.Now;
         }
     }
 }

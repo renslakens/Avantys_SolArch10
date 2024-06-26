@@ -38,13 +38,25 @@ namespace ExamManagement.Repositories
                             return false;
                         }
 
-             
                         await HandleScheduledExamAsync(jsonObj);
+                        return true;
+                    case "examConducted":
+                        var jsonObj1 = JsonSerializer.Deserialize<ExamConducted>(message, new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true // Allows case-insensitive matching
+                        });
+                        if (jsonObj1 == null)
+                        {
+                            Console.WriteLine("Deserialized JSON object is null.");
+                            return false;
+                        }
+
+                        await HandleConductedExamAsync(jsonObj1);
                         return true;
                     case "examGraded":
                         var jsonObj2 = JsonSerializer.Deserialize<ExamGraded>(message, new JsonSerializerOptions
                         {
-                            PropertyNameCaseInsensitive = true // Allows case-insensitive matching
+                            PropertyNameCaseInsensitive = true, // Allows case-insensitive matching
                         });
                         if (jsonObj2 == null)
                         {
@@ -53,6 +65,19 @@ namespace ExamManagement.Repositories
                         }
 
                         await HandleGradedExamAsync(jsonObj2);
+                        return true;
+                    case "resultPublished":
+                        var jsonObj3 = JsonSerializer.Deserialize<ResultsPublished>(message, new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true // Allows case-insensitive matching
+                        });
+                        if (jsonObj3 == null)
+                        {
+                            Console.WriteLine("Deserialized JSON object is null.");
+                            return false;
+                        }
+
+                        await HandlePublishedExamAsync(jsonObj3);
                         return true;
                     default:
                         return false;
@@ -89,8 +114,10 @@ namespace ExamManagement.Repositories
             }
         }
 
-        public async Task<bool> HandleConductedExamAsync(ExamConducted examConducted) {
-            try {
+        public async Task<bool> HandleConductedExamAsync(ExamConducted examConducted)
+        {
+            try
+            {
 
                 // Ensure ConductedDate is in UTC
                 examConducted.ConductedDate = examConducted.ConductedDate.ToUniversalTime();
@@ -102,14 +129,18 @@ namespace ExamManagement.Repositories
 
                 Console.WriteLine($"Inserted ExamConducted event with Id: {examConducted.Id}");
                 return true;
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine(e);
                 return false;
             }
         }
 
-        public async Task<bool> HandleGradedExamAsync(ExamGraded examGraded) {
-            try {
+        public async Task<bool> HandleGradedExamAsync(ExamGraded examGraded)
+        {
+            try
+            {
                 DTO dto = EventDTOConverter.ToDTO(examGraded, "examGraded");
 
                 await _eventExamCollection.InsertOneAsync(dto);
@@ -118,22 +149,28 @@ namespace ExamManagement.Repositories
                 return true;
 
 
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
 
                 Console.WriteLine(e);
                 return false;
             }
         }
 
-        public async Task<bool> HandlePublishedExamAsync(ResultsPublished resultsPublished) {
-            try {
+        public async Task<bool> HandlePublishedExamAsync(ResultsPublished resultsPublished)
+        {
+            try
+            {
                 DTO dto = EventDTOConverter.ToDTO(resultsPublished, "resultsPublished");
 
                 await _eventExamCollection.InsertOneAsync(dto);
 
                 Console.WriteLine($"Inserted resultsPublished event with Id: {resultsPublished.Id}");
                 return true;
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine(e);
                 return false;
             }

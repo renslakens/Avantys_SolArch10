@@ -8,20 +8,20 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ExamManagement.Events
 {
+    [BsonIgnoreExtraElements]
     public class ExamConducted : Event
     {
         [BsonIgnoreIfDefault]
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string MongoId { get; set; }
-        public  string Id { get; set; }
-        public  string StudentId { get; set; }
-        public  DateTime ConductedDate { get; set; }
+        public string Id { get; set; }
+        public DateTime ConductedDate { get; set; }
 
-    public ExamConducted(Guid messageId, string examId, string studentId, DateTime conductedDate) : base(messageId)
+        public ExamConducted() : base(ObjectId.GenerateNewId()) { }
+        public ExamConducted(ObjectId messageId, string examId, DateTime conductedDate) : base(messageId)
         {
             this.Id = examId;
-            this.StudentId = studentId;
             this.ConductedDate = conductedDate;
         }
     }

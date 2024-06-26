@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace ExamManagement.Messaging
 {
@@ -11,7 +12,7 @@ namespace ExamManagement.Messaging
         {
         }
 
-        public Command(Guid messageId) : base(messageId)
+        public Command(ObjectId messageId) : base(messageId)
         {
         }
 
@@ -19,7 +20,7 @@ namespace ExamManagement.Messaging
         {
         }
 
-        public Command(Guid messageId, string messageType) : base(messageId, messageType)
+        public Command(ObjectId messageId, string messageType) : base(messageId, messageType)
         {
         }
     }

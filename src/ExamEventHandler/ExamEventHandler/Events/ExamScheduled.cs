@@ -26,11 +26,11 @@ namespace ExamManagement.Events
         public Proctor Proctor { get; set; }
 
 
-        public ExamScheduled() : base(Guid.NewGuid())
+        public ExamScheduled() : base(ObjectId.GenerateNewId())
         {
         }
 
-        public ExamScheduled(Guid messageId, string id, string studentId, DateTime scheduledDate, Module module) : base(messageId)
+        public ExamScheduled(ObjectId messageId, string id, string studentId, DateTime scheduledDate, Module module) : base(messageId)
         {
             this.Id = id;
             this.StudentId = studentId;
@@ -49,9 +49,9 @@ namespace ExamManagement.Events
     public abstract class Event
     {
         [BsonRepresentation(BsonType.String)]
-        public Guid MessageId { get; private set; }
+        public ObjectId MessageId { get; private set; }
 
-        protected Event(Guid messageId)
+        protected Event(ObjectId messageId)
         {
             MessageId = messageId;
         }

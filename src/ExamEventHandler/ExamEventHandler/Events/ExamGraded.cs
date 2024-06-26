@@ -8,6 +8,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ExamManagement.Events
 {
+    [BsonIgnoreExtraElements]
     public class ExamGraded : Event
     {
         [BsonIgnoreIfDefault]
@@ -17,10 +18,11 @@ namespace ExamManagement.Events
         public string Id { get; set; }
         public double Grade { get; set; }
 
-        public ExamGraded(Guid messageId, string examId, double grade) : base(messageId)
+        public ExamGraded() : base(ObjectId.GenerateNewId()) { }
+        public ExamGraded(ObjectId messageId, string Id, double Grade) : base(messageId)
         {
-            this.Id = examId;
-            this.Grade = grade;
+            this.Id = Id;
+            this.Grade = Grade;
         }
     }
 }
