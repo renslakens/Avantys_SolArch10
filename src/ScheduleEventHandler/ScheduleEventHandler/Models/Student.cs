@@ -1,4 +1,5 @@
-﻿using ExamManagement.Models;
+﻿using System.Text.Json.Serialization;
+using ExamManagement.Models;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 

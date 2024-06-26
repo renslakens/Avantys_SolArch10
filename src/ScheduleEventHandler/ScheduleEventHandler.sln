@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleEventHandler", "ScheduleEventHandler\ScheduleEventHandler.csproj", "{FE417F6B-D614-48A3-9289-C2CFB40C2A34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE417F6B-D614-48A3-9289-C2CFB40C2A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE417F6B-D614-48A3-9289-C2CFB40C2A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE417F6B-D614-48A3-9289-C2CFB40C2A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE417F6B-D614-48A3-9289-C2CFB40C2A34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BF726F3-9BA1-4D59-85D3-72DD9F79B78D}
+	EndGlobalSection
+EndGlobal
